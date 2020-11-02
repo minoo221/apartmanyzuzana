@@ -1,0 +1,16 @@
+fields:
+    name:
+        label: Názov
+        span: auto
+        type: text
+    image:
+        label: Obrázok
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload

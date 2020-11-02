@@ -1,0 +1,86 @@
+$button-margin-bottom: $content-spacing;
+
+$button: (
+        default: (
+                border: 1px solid currentColor,
+                font-weight: 700,
+                line-height: 1.5,
+                overflow: hidden,
+                transition: 200ms all ease-out,
+                text-decoration: none
+        ),
+        disabled: (
+                opacity: 0.5,
+        )
+);
+
+$buttons-style: (
+        default: (
+                padding: _get-rem(12px) _get-rem(22px) _get-rem(13px) _get-rem(22px),
+                color: _color(white, 500),
+                background-color:  _color(dark, 300),
+                border: 0,
+                border-radius: _get-rem(0px),
+                font-size: _get-rem(16px),
+                font-weight: 700,
+                text-transform: uppercase,
+                line-height: 15px
+        ),
+        dark: (
+                color: _color(white),
+                background-color:  _color(dark, 700),
+        ),
+        primary: (
+                color: $color-white,
+                background-color: _color(primary, 400),
+        ),
+        secondary: (
+                color: $color-white,
+                background-color: _color(secondary, 500),
+        ),
+        light: (
+                color: _color(dark),
+                background-color: _color(white),
+        ),
+        warning: (
+                color: $color-white,
+                background-color: _color(warning),
+        ),
+        hollow: (
+                color: _color(primary, 400),
+                background-color: transparent,
+                border: 1px solid _color(primary, 400),
+                box-shadow: none,
+                border-radius: _get-rem(6px)
+
+        )
+);
+
+$button-sizes: (
+        default: (
+                line-height: 1,
+                padding: _get-rem(12px) _get-rem(22px) _get-rem(13px) _get-rem(22px),
+                font-weight: normal
+        ),
+        small: (
+                font-size: _get-rem(14px) !important,
+                line-height: 1,
+                padding: _get-rem(10px) _get-rem(25px) !important,
+                font-weight: 400,
+        ),
+        xsmall: (
+                font-size: _get-rem(12px) !important,
+                line-height: 1,
+                padding: _get-rem(13px) _get-rem(43px) !important,
+                font-weight: 700,
+        )
+);
+
+$button-color-weights: (
+        default: 500,
+        focus: 300,
+        active: 400,
+        disabled: 550,
+        button-group-border: 600,
+);
+

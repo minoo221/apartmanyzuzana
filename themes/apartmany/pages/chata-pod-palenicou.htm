@@ -1,0 +1,46 @@
+title = "Chata Pod Pálenicou"
+url = "/chata-pod-palenicou"
+layout = "default"
+is_hidden = 0
+==
+<?php
+use Kiwi\Accommodation\Models\Accommodation;
+
+
+function onStart(){
+    $slug = $this->param('slug');
+
+    $accommodation = new Accommodation;
+
+    $accommodation = Accommodation::where('slug', 'chata-pod-palenicou')->first();
+
+    $this['accommodation'] = $accommodation;
+    $this["editUrl"] = Backend::url("kiwi/career/career/update");
+    //dd($accommodation);
+}
+?>
+==
+<div class="accommodation">
+    <div class="accommodation__header" style="background: url('{{accommodation.thumb.path}}')">
+        <div class="container">
+            <h1>{{accommodation.name}}</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="accommodation__content mb-x-large">
+            {{accommodation.body|raw}}
+        </div>
+        {% if accommodation.gallery %}
+        <div class="gallery mb-x-large">
+            {% for image in accommodation.gallery %}
+            <a href="{{ image.thumb(400, auto) }}" class="gallery__item" data-fancybox="gallery">
+                <img
+                        data-src="{{ image.filename }}"
+                        src="{{ image.path }}"
+                        alt="{{ image.description }}">
+            </a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>

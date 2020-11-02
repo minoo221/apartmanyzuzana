@@ -1,0 +1,95 @@
+// ---------------------------------------------
+// VISIBILITY UTILITIES
+// ---------------------------------------------
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+@mixin show-for($breakpoint) {
+  @if map-get($breakpoints, $breakpoint) {
+    @include breakpoint($breakpoint, downfrom) {
+      display: none !important;
+    }
+  } @else {
+    @warn 'show-for() parameter breakpoint is not defined in the $breakpoints map';
+  }
+}
+
+@mixin hide-for($breakpoint) {
+  @if map-get($breakpoints, $breakpoint) {
+    @include breakpoint($breakpoint) {
+      display: none !important;
+    }
+  } @else {
+    @warn 'hide-for() parameter breakpoint is not defined in the $breakpoints map';
+  }
+}
+
+@mixin show-for-only($breakpoint) {
+  $lower-bound-name: $breakpoint;
+  $upper-bound-name: _map-next($breakpoints, $breakpoint, 'key');
+
+  @if $lower-bound-name {
+    @include breakpoint($lower-bound-name, downfrom) {
+      display: none !important;
+    }
+
+    @if $upper-bound-name {
+      @include breakpoint($upper-bound-name) {
+        display: none !important;
+      }
+    }
+  } @else {
+    @warn 'hide-for() parameter #{$breakpoint} is not defined properly in the $breakpoints map';
+  }
+}
+
+@mixin hide-for-only($breakpoint) {
+  @if map-get($breakpoints, $breakpoint) {
+    @include breakpoint($breakpoint, only) {
+      display: none !important;
+    }
+  } @else {
+    @warn 'hide-for() parameter #{$breakpoint} is not defined properly in the $breakpoints map';
+  }
+}
+
+@mixin visibility-classes() {
+  .hide {
+    display: none !important;
+  }
+
+  .invisible {
+    visibility: hidden;
+  }
+
+  @each $breakpoint, $size in $breakpoints {
+    @if $breakpoint != 'xs' {
+      .show-#{$breakpoint} {
+        @include show-for($breakpoint);
+      }
+
+      .hide-#{$breakpoint} {
+        @include hide-for($breakpoint);
+      }
+    }
+
+    .show-#{$breakpoint}-only {
+      @include show-for-only($breakpoint);
+    }
+
+    .hide-#{$breakpoint}-only {
+      @include hide-for-only($breakpoint);
+    }
+  }
+}
+
+@include visibility-classes;

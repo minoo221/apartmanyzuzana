@@ -1,0 +1,110 @@
+// ---------------------------------------------
+// LAYOUT UTILITIES
+// ---------------------------------------------
+
+// mixin for utilities with layout targeting
+@mixin spacing-reset-classes($breakpoint: '') {
+  .no-mrg#{$breakpoint} { margin: 0 !important; }
+  .no-mrg-top#{$breakpoint} { margin-top: 0 !important; }
+  .no-mrg-bottom#{$breakpoint} { margin-bottom: 0 !important; }
+  .no-mrg-left#{$breakpoint} { margin-left: 0 !important; }
+  .no-mrg-right#{$breakpoint} { margin-right: 0 !important; }
+
+  .no-mrg-vertical#{$breakpoint} {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .no-mrg-horizontal#{$breakpoint} {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .no-pad#{$breakpoint} { padding: 0 !important; }
+  .no-pad-top#{$breakpoint} { padding-top: 0 !important; }
+  .no-pad-bottom#{$breakpoint} { padding-bottom: 0 !important; }
+  .no-pad-left#{$breakpoint} { padding-left: 0 !important; }
+  .no-pad-right#{$breakpoint} { padding-right: 0 !important; }
+
+  .no-pad-vertical#{$breakpoint} {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .no-pad-horizontal#{$breakpoint} {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@each $breakpoint, $size in $breakpoints {
+  @include breakpoint($breakpoint) {
+    @include spacing-reset-classes( _get-variant-name( $breakpoint ) );
+  }
+}
+
+.clearfix { @include clearfix; }
+.clear { clear: both; }
+
+// Flexbox alignment classes
+@mixin alignment-classes() {
+  // Children horizontal alignment
+  .align-items-right { justify-content: flex-end; }
+  .align-items-left { justify-content: flex-start; }
+  .align-items-center { justify-content: center; }
+  .align-items-spaced { justify-content: space-around; }
+  .align-items-justify { justify-content: space-between; }
+  // Children vertcial alignment
+  .align-items-top { align-items: flex-start; }
+  .align-items-bottom { align-items: flex-end; }
+  .align-items-middle { align-items: center; }
+
+  // Selft horizontal alignmnet
+  .align-self-left {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .align-self-right {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .align-self-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Self vertical alignmnet
+  .align-self-top { align-self: flex-start; }
+  .align-self-bottom { align-self: flex-end; }
+  .align-self-middle { align-self: center; }
+  .align-self-stretch { align-self: stretch; }
+
+  .w-100 { width: 100%; }
+  .h-100 { height: 100%; }
+
+  @include breakpoint(m, down) {
+    .align-m-self-left {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .align-m-self-right {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .align-m-self-center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .align-m-self-top { align-self: flex-start; }
+    .align-m-self-bottom { align-self: flex-end; }
+    .align-m-self-middle { align-self: center; }
+    .align-m-self-stretch { align-self: stretch; }
+  }
+
+}
+
+@include alignment-classes;

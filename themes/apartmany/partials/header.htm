@@ -1,0 +1,34 @@
+[sliderstop]
+sortOrder = "title asc"
+
+[localePicker]
+forceUrl = 0
+==
+<header class="header">
+    <div class="header__top">
+        <ul class="language">
+            {% for code, name in locales %}
+            <li class="language__item">
+                <a href="{{url('/')}}/{{code}}" class="language__link   {{ code == activeLocale ? 'active' }}">{{code}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{'home'|page}}" class="logo">
+            <img src="{{ 'assets/images/logo.png'|theme }}" alt="Logo Apartmány Zuzana">
+        </a>
+        <div id="toggle-menu">
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    {% if this.page.id == 'home' %}
+    {% component 'sliderstop' %}
+    <div class="slider-text">
+        <h1 class="h1">Máte radi pokoj, spev vtáčikov a voľnosť pohybu ?</h1>
+        <p>Ponúkame Vám ubytovanie v srdci Liptova v samostatnom apartmánovom domčeku alebo na chate priamo pod lesom.</p>
+    </div>
+    {% endif %}
+</header>

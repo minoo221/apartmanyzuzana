@@ -1,0 +1,60 @@
+==
+<?php
+function onStart()
+    {
+        $this['currentYear'] = date("Y");
+    }
+?>
+==
+<footer class="footer">
+    <div class="container">
+        <div class="row mb-m-x-large">
+            <div class="col--m-4">
+                <h2 class="h5">Apartmány Zuzana</h2>
+                <address>
+                    Pavčina Lehota 48,<br/>
+                    Liptovský Mikuláš 031 01,<br/>
+                    Slovensko
+                </address>
+            </div>
+            <div class="col--m-5">
+                <h2 class="h5">Rezervácie</h2>
+                <ul class="footer-contact">
+                    <li class="footer-contact__item">
+                        <i class="icon icon-phone-call"></i>
+                        <a href="tel:+421903727583">+421 903 727 583</a>
+                    </li>
+                    <li class="footer-contact__item">
+                        <i class="icon icon-phone-call"></i>
+                        <a href="tel:+421902468677">+421 902 468 677</a>
+                    </li>
+                    <li class="footer-contact__item">
+                        <i class="icon icon-phone-call"></i>
+                        <a href="tel:+421445548154">+421 445 548 154</a>
+                    </li>
+                    <li class="footer-contact__item">
+                        <i class="icon icon-envelope"></i>
+                        <a href="mailto:zzuzanas@gmail.com">zzuzanas@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col--m-3">
+                <h2 class="h5">Informácie</h2>
+                <ul class="list list--vertical">
+                    <li class="list__item">
+                        <a href="#" class="list__link">Kontakt</a>
+                    </li>
+                    <li class="list__item">
+                        <a href="#" class="list__link">Ochrana osobných údajov</a>
+                    </li>
+                    <li class="list__item">
+                        <a href="#" class="list__link">Cookies</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center">
+            <p>&copy; {{currentYear}} Apartmány Zuzana. Vytvoril <a href="mailto:milanblasko28@gmail.com">Milan</a>.</p>
+        </div>
+    </div>
+</footer>

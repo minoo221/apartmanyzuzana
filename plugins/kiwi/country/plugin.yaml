@@ -1,0 +1,16 @@
+plugin:
+    name: 'kiwi.country::lang.plugin.name'
+    description: 'kiwi.country::lang.plugin.description'
+    author: Kiwi
+    icon: oc-icon-info
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Krajina
+        url: kiwi/country/country
+        icon: icon-info
+        sideMenu:
+            side-menu-item:
+                label: Kategória
+                url: kiwi/country/category
+                icon: icon-sitemap

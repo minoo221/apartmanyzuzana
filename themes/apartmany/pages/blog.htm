@@ -1,0 +1,84 @@
+title = "Blog"
+url = "/clanky/:page?"
+layout = "default"
+is_hidden = 0
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog"
+postPage = "blog-detail"
+==
+<section class="blog">
+    <div class="container">
+        <div class="text-center">
+            <h1 class="mb-x-large">Aktivity</h1>
+        </div>
+        <div class="row">
+            <aside class="col--l-3">
+                <h2 class="h4">Kategórie</h2>
+                <ul class="list list--vertical">
+                    {% if blogCategories.categories|length > 0 %}
+                    {% set categories = blogCategories.categories %}
+                    {% set currentCategorySlug = blogCategories.currentCategorySlug %}
+                    {% for category in categories %}
+                    {% set postCount = category.post_count %}
+                    <li class="list__item d--flex align-items-center {% if category.slug == currentCategorySlug %}active{% endif %}">
+                        <a href="{{category.url}}" class="list__link">{{ category.name }}</a>
+                        {% if postCount %}
+                        <span class="badge badge--primary badge--pill" title="Počet článkov">{{ postCount }}</span>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                    {% else %}
+                    <li class="list-group-item align-items-center">
+                        Žiadne kategórie
+                    </li>
+                    {% endif %}
+                </ul>
+            </aside>
+            <div class="col--l-9">
+            {% set posts = blogPosts.posts %}
+            {% for post in posts %}
+                <div class="media">
+                    <img src="{{ post.thumb.thumb(200, 200, {'mode':'crop'}) }}" class="mr-medium" alt="{% if post.thumb.title %}{{post.thumb.title}}{% else %}{{post.title}}{% endif %}">
+                    <div class="media__body">
+                        <h2 class="h5 mb-medium"><a href="{{post.url}}">{{post.title}}</a></h2>
+                        {% if post.excerpt %}
+                        <p>{{post.excerpt}}</p>
+                        {% else %}
+                        <p>{{html_strip(html_limit(post.content, 250)|raw)}}...</p>
+                        {% endif %}
+                        <a href="{{post.url}}" class="read-more">Čítať viac</a>
+                    </div>
+                </div>
+            {% endfor %}
+
+                {% if posts.lastPage > 1 %}
+                    <ul class="pagination">
+                        {% if posts.currentPage > 1 %}
+                            <li class="pagination__item"><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}" class="pagination__link">&larr; Prev</a></li>
+                        {% endif %}
+
+                        {% for page in 1..posts.lastPage %}
+                            <li class="pagination__item {{ posts.currentPage == page ? 'active' : null }}">
+                                <a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): page }) }}" class="pagination__link">{{ page }}</a>
+                            </li>
+                        {% endfor %}
+
+                        {% if posts.lastPage > posts.currentPage %}
+                            <li class="pagination__item"><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}" class="pagination__link">Next &rarr;</a></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

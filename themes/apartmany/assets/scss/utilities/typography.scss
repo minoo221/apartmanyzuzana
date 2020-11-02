@@ -1,0 +1,75 @@
+// ---------------------------------------------
+// TYPOGRAPHY UTILITIES
+// ---------------------------------------------
+
+.text-transform-upper { text-transform: uppercase; }
+.text-transform-capitalize { text-transform: capitalize; }
+.text-transform-none { text-transform: none; }
+.text-line-through { text-decoration: line-through;}
+
+strong,
+.text-bold { font-weight: 700; }
+.text-semibold { font-weight: 600; }
+.text-light { font-weight: 300; }
+.text-normal { font-weight: normal; }
+.text-medium {font-weight: 500;}
+
+em,
+.text-italic { font-style: italic; }
+
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important;}
+.text-justify { text-align: justify; }
+
+.text-vam { vertical-align: middle; }
+.text-vat { vertical-align: top; }
+.text-vab { vertical-align: bottom; }
+.text-vabl { vertical-align: baseline; }
+
+.text-space-half { margin-bottom: _get-space('v', 'small'); }
+.text-nospace { margin: 0; }
+.text-space-left { margin-left: _get-space('h', 'small'); }
+.text-space-right { margin-right: _get-space('h', 'small'); }
+
+.text-nowrap { white-space: nowrap; }
+.text-ellipsis { @include text-ellipsis; }
+
+.text-color-brown { color: _color(brown); };
+.text-color-primary,
+.text-color-theme-500 { color: _color(primary, 500); }
+.text-color-theme-400 { color: _color(primary, 400); }
+.text-color-theme-100 { color: _color(primary, 100); }
+.text-color-black { color: $text-color-black; }
+.text-color-semiblack { color: $text-color-semiblack; }
+.text-color-grey { color: $text-color-grey; }
+.text-color-semigrey { color: rgba(_color(gray, 400), 0.3); }
+.text-color-grey-800 { color: $text-color-grey-800; }
+.text-color-white { color: $text-color-white; }
+.text-color-semiwhite { color: $text-color-semiwhite; }
+.text-color-danger,
+.text-color-error { color: $text-color-error; }
+.text-color-success { color: _color(success) }
+.text-color-warning { color: _color(warning) }
+
+.lh-1 {
+  line-height: 1;
+}
+
+.lh-1-5 {
+  line-height: 1.5;
+}
+
+.ls-05 {
+  letter-spacing: 0.5px;
+}
+
+br.no-mobile {
+  @include breakpoint(l, down) {
+    display: none;
+  }
+}
+
+.invalid-feedback {
+  color: _color(error);
+}

@@ -1,0 +1,4 @@
+title: SliderTop
+modelClass: Kiwi\Sliders\Models\SliderTop
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,12 @@
+fields:
+    category_name:
+        label: 'Názov kategórie'
+        span: auto
+        type: text
+    slug:
+        label: 'URL alias'
+        span: auto
+        preset:
+            field: category_name
+            type: slug
+        type: text

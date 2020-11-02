@@ -1,0 +1,10 @@
+name: SliderTop
+form: $/kiwi/sliders/models/slidertop/fields.yaml
+modelClass: Kiwi\Sliders\Models\SliderTop
+defaultRedirect: kiwi/sliders/slidertop
+create:
+    redirect: 'kiwi/sliders/slidertop/update/:id'
+    redirectClose: kiwi/sliders/slidertop
+update:
+    redirect: kiwi/sliders/slidertop
+    redirectClose: kiwi/sliders/slidertop

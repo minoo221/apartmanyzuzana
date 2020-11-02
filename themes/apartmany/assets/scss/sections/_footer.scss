@@ -1,0 +1,55 @@
+.footer {
+    position: relative;
+    padding: 60px 0 30px 0;
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 30px;
+        background: url("../images/footer-pattern.png");
+        background-size: contain;
+    }
+    address {
+        color: _color(dark, 400);
+        line-height: 26px;
+    }
+    .row {
+        > div {
+            @include breakpoint(s, down) {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .footer-contact {
+        padding-left: 0;
+        list-style: none;
+        @include breakpoint(s, down) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            .icon {
+                display: block;
+                line-height: 0;
+                font-size: 21px;
+                margin-right: 10px;
+                color: _color(primary, 400);
+            }
+            a {
+                color: _color(dark, 400);
+                text-decoration: none;
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

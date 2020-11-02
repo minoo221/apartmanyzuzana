@@ -1,0 +1,135 @@
+// ---------------------------------------------
+// MIXINS AND FUNCTIONS - MAP
+// ---------------------------------------------
+
+// -------------------------------
+// MIXINS
+
+/// Responsive map to classes
+/// @example
+///   $responisive-map: (
+///    null: (
+///      'h1, .h1' : (
+///        // property: value,
+///        // another-property: another-value,
+///      ),
+///      '.your-class' : (),
+///    ),
+///    'm': (
+///      'h1, .h1' : (),
+///      '.your-class' : (),
+///    ),
+///  );
+@mixin r-map-to-classes($responisive-map) {
+  @each $breakpoint, $tags in $responisive-map {
+    @include breakpoint($breakpoint) {
+      @each $tag, $properties in $tags {
+        #{$tag} {
+          @each $property, $value in $properties {
+            #{$property}: #{$value};
+          }
+        }
+      }
+    }
+  }
+}
+
+/// Get css propeties from map
+///
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Keys to fetch
+///
+/// @example
+/// $map: (
+///   background-color: #fff,
+///   color: #000
+/// );
+///
+/// .example {
+///   @include css-map($map);
+///  }
+///
+/// Output:
+/// .example {
+///   background-color: #fff;
+///   color: #000;
+/// }
+@mixin css-map($_map, $keys...) {
+  $map: if($keys, _map-deep-get($_map, $keys...), $_map);
+
+  @each $prop, $value in $map {
+    #{$prop}: #{$value};
+  }
+}
+
+// -------------------------------
+// FUNCTIONS
+
+/// Base on -zf-map-next https://github.com/zurb/foundation-sites/blob/develop/scss/util/_breakpoint.scss
+/// Find the next key in a map.
+/// @access private
+///
+/// @param {Map} $map - Map to traverse.
+/// @param {Mixed} $key - Key to use as a starting point.
+///
+/// @returns {Mixed} The value for the key after `$key`, if `$key` was found. If `$key` was not found, or `$key` was the last value in the map, returns `null`.
+@function _map-next($map, $key, $return: 'value') {
+
+  // Store the keys of the map as a list
+  $values: map-keys($map);
+
+  $i: 0;
+
+  // If the Key Exists, Get the index of the key within the map and add 1 to it for the next breakpoint in the map
+  @if (map-has-key($map, $key)) {
+    $i: index($values, $key) + 1;
+  }
+
+  // If the key doesn't exist, or it's the last key in the map, return null
+  @if ($i > length($map) or $i == 0) {
+    @return null;
+  }
+  // Otherwise, return the value
+  @else {
+    @if $return == 'value' {
+      @return map-get($map, nth($values, $i));
+    } @else {
+      @return nth($values, $i);
+    }
+  }
+}
+
+/// Get last map key
+/// @param {Map} $map - Map to extract last key from
+/// @return {String} - The last key in provided map
+@function _get-last-key($map) {
+  $keys: map-keys($map);
+
+  @return nth($keys, length($map));
+}
+
+/// Get breakpoint map - Converts a string to a single-value breakpoint map for responsive use
+/// @param {String | Map} $value - String to convert. Passing a map will return the map itself.
+/// @return {Map}
+@function _get-breakpoint-map($value) {
+  @if type-of($value) == map {
+    @return $value;
+  } @else {
+    @return ('xs': $value);
+  }
+}
+
+/// Fetch nested keys
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Keys to fetch
+/// @return {*}
+@function _map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    @if (type-of($map) == map) {
+      $map: map-get($map, $key);
+    }
+  }
+
+  @return $map;
+}
+

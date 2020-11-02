@@ -1,0 +1,8 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table kiwi_sliders_top'
+    - builder_table_create_kiwi_sliders_top.php
+1.0.3:
+    - 'Updated table kiwi_sliders_top'
+    - builder_table_update_kiwi_sliders_top.php

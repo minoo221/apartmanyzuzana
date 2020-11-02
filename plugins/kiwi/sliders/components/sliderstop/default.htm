@@ -1,0 +1,12 @@
+{%  set sliderstop = __SELF__.sliderstop %}
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        {% for slidertop in sliderstop %}
+        {% for image in slidertop.image %}
+        <div class="swiper-slide">
+            <img src="{{image.path}}" alt="{{image.title}}">
+        </div>
+        {% endfor %}
+        {% endfor %}
+    </div>
+</div>

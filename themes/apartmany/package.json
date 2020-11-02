@@ -1,0 +1,36 @@
+{
+  "name": "webidentity-boilerplate",
+  "version": "1.0.0",
+  "description": "This is a very basic starting point for new web projects. It takes no assumptions about your tech stack and there is no binding to any javascript frameworks or backend systems.",
+  "main": "Gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "natives": "^1.1.6"
+  },
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.0",
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect-php": "^1.0.3",
+    "gulp-fontgen": "^0.2.5",
+    "gulp-iconfont": "^9.0.2",
+    "gulp-iconfont-css": "^2.1.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-svg-sprite": "^1.5.0"
+  },
+  "scripts": {
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Webidentity",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:webidentity/website/webidentity.git"
+  }
+}

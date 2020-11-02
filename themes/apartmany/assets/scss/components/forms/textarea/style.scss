@@ -1,0 +1,18 @@
+// ---------------------------------------------
+// FORMS - INPUT - STYLES
+// ---------------------------------------------
+
+.textarea {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  border: 1px solid _color(dark, 400);
+  font-family: $font-family-mulish;
+  padding: 10px !important;
+  border-radius: 4px;
+
+  &::placeholder {
+    color: rgba($form-c, 0.7);
+  }
+}

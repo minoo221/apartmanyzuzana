@@ -1,0 +1,43 @@
+title = "Apartmany"
+url = "/apartmany"
+layout = "default"
+is_hidden = 0
+
+[contenteditor]
+file = "country.en.htm"
+==
+<?php
+use Kiwi\Accommodation\Models\Accommodation;
+
+
+function onStart(){
+    $slug = $this->param('slug');
+
+    $accommodations = new Accommodation;
+
+    $accommodations = Accommodation::where('type', 1)->get();
+
+    $this['accommodations'] = $accommodations;
+    $this["editUrl"] = Backend::url("kiwi/career/career/update");
+    //dd($accommodations);
+}
+?>
+==
+<section class="country-main">
+    <div class="container">
+        <div class="row">
+            <aside class="col--l-3">
+                <ul class="list list--vertical">
+                    {% for accommodation in accommodations  %}
+                    <li class="list__item">
+                        <a href="{{ 'apartmany-detail'|page({ slug: accommodation.slug }) }}" class="list__link">{{accommodation.name}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </aside>
+            <div class="col--l-9">
+                {% component 'contenteditor' file="apartments.htm" tools="*" %}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,187 @@
+// ---------------------------------------------
+// MIXINS AND FUNCTIONS - GENERAL
+// ---------------------------------------------
+
+// -------------------------------
+// FUNCTIONS
+
+// -------------------------------
+// Power calculator
+@function _pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if ( $exponent < 0 ) {
+    $value: 1 / _pow($number, abs($exponent));
+  }
+
+  @return $value;
+}
+
+/// Get prefixed variant name
+/// @param {String} $name - Variant name
+/// @return {String} - Return a prefixed variant name or empty string, for default variants
+/// @example scss
+///   _get-variant-name('primary')
+/// // -primary
+///   _get-variant-name('default')
+/// //
+@function _get-variant-name($name, $prefix: '--', $suffix: '') {
+  @if not $name or $name == default or $name == xs {
+    @return '';
+  }
+
+  @return #{$prefix + $name + $suffix};
+}
+
+/// Strip units from any number
+/// @param {Number} $number - Number to strip units from
+/// @return {Number}
+@function _strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@font-face {
+  font-family: "icons";
+  src: url('../fonts/icons/icons.eot?v1');
+  src: url('../fonts/icons/icons.eot?#iefix') format('eot'),
+  url('../fonts/icons/icons.woff2?v1') format('woff2'),
+  url('../fonts/icons/icons.woff?v1') format('woff'),
+  url('../fonts/icons/icons.ttf?v1') format('truetype'),
+  url('../fonts/icons/icons.svg#icons') format('svg');
+}
+
+@mixin icon-styles {
+  font-family: "icons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+  text-decoration: none;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+}
+
+
+@function icon-char($filename) {
+  $char: "";
+
+  @if $filename == call-answer {
+    $char: "\E001";
+  }
+  @if $filename == checked {
+    $char: "\E002";
+  }
+  @if $filename == clock {
+    $char: "\E003";
+  }
+  @if $filename == close-button {
+    $char: "\E004";
+  }
+  @if $filename == down-chevron {
+    $char: "\E005";
+  }
+  @if $filename == envelope {
+    $char: "\E006";
+  }
+  @if $filename == facebook-logo {
+    $char: "\E007";
+  }
+  @if $filename == home {
+    $char: "\E008";
+  }
+  @if $filename == instagram {
+    $char: "\E009";
+  }
+  @if $filename == left-chevron {
+    $char: "\E00A";
+  }
+  @if $filename == linkedin-logo {
+    $char: "\E00B";
+  }
+  @if $filename == location-pin {
+    $char: "\E00C";
+  }
+  @if $filename == menu-button {
+    $char: "\E00D";
+  }
+  @if $filename == mouse-pointer {
+    $char: "\E00E";
+  }
+  @if $filename == phone-call {
+    $char: "\E00F";
+  }
+  @if $filename == right-chevron {
+    $char: "\E010";
+  }
+  @if $filename == youtube-logo {
+    $char: "\E011";
+  }
+
+  @return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+  &:#{$insert} {
+    @include icon-styles;
+    content: icon-char($filename);
+  }
+}
+
+.icon-call-answer {
+  @include icon(call-answer);
+}
+.icon-checked {
+  @include icon(checked);
+}
+.icon-clock {
+  @include icon(clock);
+}
+.icon-close-button {
+  @include icon(close-button);
+}
+.icon-down-chevron {
+  @include icon(down-chevron);
+}
+.icon-envelope {
+  @include icon(envelope);
+}
+.icon-facebook-logo {
+  @include icon(facebook-logo);
+}
+.icon-home {
+  @include icon(home);
+}
+.icon-instagram {
+  @include icon(instagram);
+}
+.icon-left-chevron {
+  @include icon(left-chevron);
+}
+.icon-linkedin-logo {
+  @include icon(linkedin-logo);
+}
+.icon-location-pin {
+  @include icon(location-pin);
+}
+.icon-menu-button {
+  @include icon(menu-button);
+}
+.icon-mouse-pointer {
+  @include icon(mouse-pointer);
+}
+.icon-phone-call {
+  @include icon(phone-call);
+}
+.icon-right-chevron {
+  @include icon(right-chevron);
+}
+.icon-youtube-logo {
+  @include icon(youtube-logo);
+}

@@ -1,0 +1,4 @@
+title: Country
+modelClass: Kiwi\Country\Models\Country
+toolbar:
+    buttons: reorder_toolbar

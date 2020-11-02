@@ -1,0 +1,10 @@
+name: Accommodation
+form: $/kiwi/accommodation/models/accommodation/fields.yaml
+modelClass: Kiwi\Accommodation\Models\Accommodation
+defaultRedirect: kiwi/accommodation/accommodation
+create:
+    redirect: 'kiwi/accommodation/accommodation/update/:id'
+    redirectClose: kiwi/accommodation/accommodation
+update:
+    redirect: kiwi/accommodation/accommodation
+    redirectClose: kiwi/accommodation/accommodation

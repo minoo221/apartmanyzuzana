@@ -1,0 +1,189 @@
+// ---------------------------------------------
+// BUTTONS
+// ---------------------------------------------
+
+// ----------------------------
+// STYLES
+
+@mixin generate-color($states, $prop, $type) {
+  @if not _map-deep-get($states, $type, $prop) {
+    #{$prop}: _color(_map-deep-get($states, 'default', $prop), map-get($button-color-weights, $type));
+  }
+};
+
+/// Styles our button appropriately
+/// @param {map} $states - Map of button states
+@mixin button-style($states) {
+  @include css-map($states, 'default');
+
+  &:hover,
+  &:focus {
+    @include css-map($states, 'focus');
+  }
+}
+
+@mixin button-base($states: $button) {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  appearance: none;
+  transition: opacity 0.3s ease;
+
+  @include css-map($states, 'default');
+
+  &:hover,
+  &:focus {
+    @include css-map($states, 'focus');
+  }
+
+  &:active,
+  &.is-active {
+    @include css-map($states, 'active');
+    z-index: 2;
+  }
+
+  &.is-disabled,
+  &[disabled] {
+    @include css-map($states, 'disabled');
+  }
+}
+
+@mixin button-classes {
+  .btn {
+    @include button-base;
+    &:after {
+      display: none !important;
+    }
+
+    &--hollow {
+
+      &:hover,
+      &:focus {
+        color: _color(white) !important;
+        background: _color(primary, 400);
+        opacity: 1 !important;
+
+      }
+    }
+
+
+    @each $size, $props in $button-sizes {
+      &#{_get-variant-name($size)} {
+        @include css-map($props);
+      }
+    }
+  }
+
+  // button styles
+  // configure $button-styles in utils/_config.scss
+  @each $name in $buttons-style {
+    .btn#{_get-variant-name($name)} {
+
+        &:hover,
+        &:focus {
+          opacity: 0.85;
+        }
+    }
+  }
+
+
+
+}
+
+@include button-classes;
+
+// ----------------------------
+// ICONS
+
+// Classes for proper icon alignment and sizing in buttons
+@mixin button-icon-classes {
+  .btn {
+    &--icon {
+      padding: _get-rem(13px) _get-rem(21px) !important;
+      .icon {
+        font-size: _get-rem(21px);
+        line-height: 0;
+        vertical-align: middle;
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+
+@include button-icon-classes;
+
+
+@mixin button-submit {
+  .btn {
+    &--submit {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 100%;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .icon {
+        color: rgba(_color(white), 0.5);
+      }
+    }
+  }
+}
+
+@include button-submit;
+
+@mixin button-arrow {
+  .btn-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 50%;
+    border: 1px solid _color(white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    &:hover,
+    &:focus {
+      background: _color(white);
+
+      .icon {
+        color: _color(dark, 400) !important;
+      }
+    }
+
+    &--primary {
+      border: 1px solid _color(primary);
+      .icon {
+        color: _color(primary) !important;
+      }
+      &:hover {
+        background: _color(primary);
+
+        .icon {
+          color: _color(white) !important;
+        }
+      }
+    }
+
+    .icon {
+      color: _color(white);
+      line-height: 0;
+    }
+  }
+}
+
+@include button-arrow;
+
+@include css-variants('.btn', $buttons-style);
+

@@ -1,0 +1,19 @@
+.badge {
+    display: inline-flex;
+    border-radius: 6px;
+    color: _color(white);
+    padding: 4px 7px;
+    &--primary {
+        background: _color(primary, 400);
+    }
+    &--pill {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-weight: 500;
+        font-size: 14px;
+    }
+}

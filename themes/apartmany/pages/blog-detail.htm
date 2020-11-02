@@ -1,0 +1,40 @@
+title = "Blog detail"
+url = "/clanok/:slug"
+layout = "default"
+is_hidden = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog"
+==
+<section class="blog-detail">
+    <div class="container">
+        {% set post = blogPost.post %}
+        <h1>{{post.title}}</h1>
+        <div class="blog-detail__content">{{ post.content_html|raw }}</div>
+        
+        {% if post.featured_images.count %}
+            <div class="gallery">
+                {% for image in post.featured_images %}
+                <a href="{{ image.thumb(400, auto) }}" class="gallery__item" data-fancybox="gallery">
+                    <img
+                        data-src="{{ image.filename }}"
+                        src="{{ image.path }}"
+                        alt="{{ image.description }}">
+                </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        <p class="info">
+            Posted
+            {% if post.categories.count %} in
+                {% for category in post.categories %}
+                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            {% endif %}
+            on {{ post.published_at|date('M d, Y') }}
+        </p>
+
+    </div>
+</section>

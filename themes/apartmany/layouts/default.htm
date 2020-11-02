@@ -1,0 +1,33 @@
+description = "Default layout"
+==
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Apartmány Zuzana - {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="Apartmány Zuzana">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+        <link href="{{ 'assets/css/app.css'|theme }}" rel="stylesheet">
+        {% styles %}
+    </head>
+    <body>
+
+        {% partial 'header' %}
+
+        <main class="content content--{{this.page.id}}">
+            {% page %}
+        </main>
+
+
+        {% partial 'footer' %}
+        {% partial 'side-menu' %}
+        {% partial 'foot' %}
+    </body>
+
+</html>

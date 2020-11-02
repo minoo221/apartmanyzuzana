@@ -1,0 +1,119 @@
+// ---------------------------------------------
+// GENERAL UTILITIES
+// ---------------------------------------------
+
+.clickable {
+  cursor: pointer;
+}
+
+.video-embed-field-responsive-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  iframe {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+  }
+}
+
+.bg-grey {
+	background-color:_color(grey, 200);
+}
+
+.img-responsive {
+	width: 100%;
+	height: auto;
+}
+
+.pointer-default {
+	cursor: initial;
+}
+
+.section {
+	margin-bottom: _get-rem(130px);
+	@include breakpoint(m, down) {
+		margin-bottom: _get-rem(60px);
+	}
+	@include breakpoint(s, down) {
+		margin-bottom: _get-rem(40px);
+	}
+}
+
+.content {
+	position: relative;
+	padding-top: 60px;
+	@include breakpoint(m, down) {
+		padding-top: 0;
+	}
+	&--home {
+		padding-top: 30px;
+	}
+}
+
+.table-scroll {
+	overflow-x: auto;
+}
+
+.rotate-up {
+	transform: rotate(-90deg);
+}
+
+.responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.map-overlay {
+	position: absolute;
+	color: _color(white);
+	display: none;
+	z-index: 10;
+	background: _color(dark);
+	border: 0;
+	border-radius: 4px;
+	padding: _get-space("h", "medium");
+	min-width: 220px;
+	text-align: center;
+	@include breakpoint(l, down) {
+		z-index: 20;
+
+		h2 {
+			font-size: _get-rem(21px);
+			margin-bottom: _get-space("h", "tiny");
+		}
+	}
+	@include breakpoint(m, down) {
+
+		h2 {
+			font-size: _get-rem(19px);
+		}
+	}
+
+	h4 {
+		margin-bottom: 0;
+	}
+
+	&--home {
+		top: 140px;
+		left: 50%;
+		transform: translateX(80%);
+		@include breakpoint(l, down) {
+			left: 40px;
+			transform: none;
+		}
+		@include breakpoint(m, down) {
+			left: 10px;
+			padding: _get-space("h", "tiny");
+		}
+	}
+
+	span {
+		line-height: 21px;
+	}
+}

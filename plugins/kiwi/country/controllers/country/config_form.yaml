@@ -1,0 +1,10 @@
+name: Country
+form: $/kiwi/country/models/country/fields.yaml
+modelClass: Kiwi\Country\Models\Country
+defaultRedirect: kiwi/country/country
+create:
+    redirect: 'kiwi/country/country/update/:id'
+    redirectClose: kiwi/country/country
+update:
+    redirect: kiwi/country/country
+    redirectClose: kiwi/country/country

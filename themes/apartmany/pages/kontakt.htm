@@ -1,0 +1,84 @@
+title = "Kontakt"
+url = "/kontakt"
+layout = "default"
+is_hidden = 0
+==
+<div class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col--l-5">
+                <h1>Kontakt</h1>
+                <address>
+                    Pavčina Lehota 48,<br/>
+                    Liptovský Mikuláš 031 01,<br/>
+                    Slovensko
+                </address>
+                <h2 class="h1">Rezervácie</h2>
+                <ul class="contact-list">
+                    <li class="contact-list__item">
+                        <i class="icon icon-phone-call"></i>
+                        <a href="tel:+421903727583">+421 903 727 583</a>
+                    </li>
+                    <li class="contact-list__item">
+                        <i class="icon icon-phone-call"></i>
+                        <a href="tel:+421902468677">+421 902 468 677</a>
+                    </li>
+                    <li class="contact-list__item">
+                        <i class="icon icon-phone-call"></i>
+                        <a href="tel:+421445548154">+421 445 548 154</a>
+                    </li>
+                    <li class="contact-list__item">
+                        <i class="icon icon-envelope"></i>
+                        <a href="mailto:zzuzanas@gmail.com">zzuzanas@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col--l-7">
+                <form data-request="{{ emptyForm }}::onFormSubmit" class="form" data-request-validate>
+                    {{ form_token() }}
+                    <div class="row">
+                        <div class="form-group col--12">
+                            <label for="name">Vaše meno a priezvisko <span class="text-primary">*</span></label>
+                            <input type="text" class="input" id="name" name="meno">
+                            <div data-validate-for="meno"></div>
+                        </div>
+                        <div class="form-group col--12">
+                            <label for="tel">Tel. kontakt</label>
+                            <input type="tel" class="input" id="tel" name="telefon">
+                        </div>
+                        <div class="form-group col--12">
+                            <label for="email">E-mail: <span class="text-primary">*</span></label>
+                            <input type="email" class="input" id="email" name="email">
+                            <div data-validate-for="email"></div>
+                        </div>
+                        <div class="form-group col--12">
+                            <label for="subject">Predmet správy <span class="text-primary">*</span></label>
+                            <input type="tel" class="input" id="subject" name="predmet">
+                            <div data-validate-for="predmet"></div>
+                        </div>
+                        <div class="form-group form-group-large col--12">
+                            <label for="text">Text <span class="text-primary">*</span></label>
+                            <textarea type="tel" class="textarea" id="text" rows="6" name="sprava"></textarea>
+                            <span data-validate-for="sprava"></span>
+                        </div>
+                        <div class="col--12 col--m-6 agree">
+                            <div class="checkbox">
+                                <label>
+                                    <input name="" type="checkbox" value="1">
+                                    <span class="checkbox__indicator"><i class="icon icon-checked"></i></span>
+                                    Chci se zaregistrovat
+                                </label>
+                            </div>
+                            <div data-validate-for="suhlas-so-spracovanim-udajov" class="agree-validate text-primary"></div>
+                        </div>
+                        <div class="col--12 col--m-6 btn-submit">
+                            <button type="submit" class="btn btn--primary" onClick="fbq('track', 'SubmitApplication');">Odoslať</button>
+                        </div>
+                        <div id="{{ emptyForm }}_forms_flash" class="form-flash"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+</div>

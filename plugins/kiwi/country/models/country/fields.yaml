@@ -1,0 +1,27 @@
+fields:
+    name:
+        label: Názov
+        span: auto
+        type: text
+    images:
+        label: Obrázky
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    body:
+        label: Popis
+        size: small
+        span: full
+        type: richeditor
+    category:
+        label: Kategória
+        nameFrom: category_name
+        descriptionFrom: description
+        span: auto
+        type: relation

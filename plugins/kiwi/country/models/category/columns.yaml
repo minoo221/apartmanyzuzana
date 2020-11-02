@@ -1,0 +1,6 @@
+columns:
+    category_name:
+        label: 'Názov kategórie'
+        type: text
+        searchable: true
+        sortable: true

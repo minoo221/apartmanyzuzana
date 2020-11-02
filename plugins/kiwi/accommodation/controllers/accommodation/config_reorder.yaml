@@ -1,0 +1,4 @@
+title: Accommodation
+modelClass: Kiwi\Accommodation\Models\Accommodation
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,16 @@
+plugin:
+    name: 'kiwi.sliders::lang.plugin.name'
+    description: 'kiwi.sliders::lang.plugin.description'
+    author: Kiwi
+    icon: oc-icon-image
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Slidery
+        url: kiwi/sliders/slidertop
+        icon: icon-image
+        sideMenu:
+            side-menu-item:
+                label: 'Top slider'
+                url: /
+                icon: icon-sitemap

@@ -1,0 +1,244 @@
+// ---------------------------------------------
+// CONFIGURATION
+// ---------------------------------------------
+
+// CONTENTS
+// breakpoints
+// typography
+// spacing
+// colors
+// selection
+// utility
+// general
+// z-index
+// shadows
+// easings
+
+// ----------------------------
+// BREAKPOINTS
+
+$breakpoints: (
+  xs: 0,
+  s: 480px,
+  m: 640px,
+  l: 992px,
+  xl: 1280px,
+  xxl: 1400px,
+  xxxl: 1680px,
+);
+
+// ----------------------------
+// TYPOGRAPHY
+
+$font-family-helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-family-mulish: 'Mulish', sans-serif !default;
+$font-family-berkshire: 'Berkshire Swash', cursive !default;
+
+$default-font-family: $font-family-mulish !default;
+$default-font-size: 16px !default;
+
+// ----------------------------
+// SPACING
+
+$spaces-horizontal: (
+  default: 1rem,
+  tiny: 0.25rem,
+  small: 0.5rem,
+  medium: 1rem,
+  large: 1.5rem,
+  x-large: 3rem,
+);
+
+$spaces-vertical: (
+    default: 1rem,
+    tiny: 0.25rem,
+    small: 0.5rem,
+    medium: 1rem,
+    large: 1.5rem,
+    x-large: 3rem,
+);
+
+$container-width: (
+        xs: 960px,
+        xl: 1280px,
+); //
+$container-small-width: (
+        xl: 960px,
+);
+// ----------------------------
+// COLORS
+
+$color-white: #fff !default;
+$color-black: #000 !default;
+
+$color-semiwhite: rgba(255, 255, 255, 0.5) !default;
+$color-semiblack: rgba(0, 0, 0, 0.5) !default;
+
+$color-palette: (
+  primary: (
+    500: #d81428,
+  ),
+  secondary: (
+    500: #ecc306,
+  ),
+  error: (
+    500: #fa5252,
+    50:  #fff5f5,
+    100: #ffe3e3,
+    300: #ff6b6b,
+  ),
+  warning: (
+    500: #ce2b16
+  ),
+  success: (
+    200: #f6f8ee,
+    300: #ccd7a4,
+    500: #a2b75b,
+  ),
+  blue: (
+    500: #8ea4d7,
+    900: #6d84b6,
+  ),
+  brown: (
+    500: #54281b,
+    900: #6d4623,
+  ),
+  dark: (
+      400: #231f20,
+      500: #000000,
+  ),
+  grey: (
+    50: #b9b9b9,
+    200: #737172,
+    300: #ececec,
+    400: #777777,
+    500: #cdcdcd
+  ),
+);
+
+
+$default-color-weights: (
+  50,
+  100,
+  200,
+  300,
+  400,
+  500,
+  600,
+  700,
+  800,
+  900,
+);
+
+//---------------
+// SELECTION
+
+$selection-bg-color: _color(primary, 500);
+$selection-text-color: $color-white;
+
+//---------------
+// utility
+
+$text-color-theme-500: _color(primary, 500);
+$text-color-theme-400: _color(primary, 400);
+$text-color-theme-100: _color(primary, 100);
+
+$text-color-black: $color-black;
+$text-color-grey: _color(grey, 500);
+$text-color-grey-800: _color(grey, 800);
+$text-color-semiblack: $color-semiblack;
+
+$text-color-white: $color-white;
+$text-color-semiwhite: $color-semiwhite;
+
+$text-color-error: _color(error, 500);
+
+// ----------------------------
+// GENERAL
+
+$border-radius: 3px !default;
+$border-radius-btn: 10px !default;
+$content-spacing: _get-space('v') !default;
+
+$default-bg-color: $color-white !default;
+$default-text-color: _color(grey, 500) !default;
+
+$default-border-color: _color(gray, 200);
+$default-border-radius: $border-radius !default;
+
+$default-outline: 3px solid rgba(_color(primary, 200), 0.8);
+
+$default-border: 1px solid rgba(_color(dark, 900), 0.1);
+$default-border-bottom: 1px solid rgba(_color(dark, 900), 0.1);
+
+$list-spacing: (
+        default: (
+                default: _get-space('h'),
+        ),
+        small: (
+                default: _get-space('h', 'small'),
+        ),
+);
+
+// ----------------------------
+// Z-INDEX
+
+$z-index-default: 100 !default;
+$z-index-topbar: 200 !default;
+$z-index-overlay: 500 !default;
+
+// ----------------------------
+// SHADOWS
+
+$shadow-ambient-0: 0 2px 4px 0 rgba(0, 0, 0, 0.02) !default;
+$shadow-ambient-1: 0 2px 4px 0 rgba(0, 0, 0, 0.07) !default;
+$shadow-ambient-2: 0 3px 8px 0 rgba(0, 0, 0, 0.11) !default;
+$shadow-ambient-3: 0 4px 13px 0 rgba(0, 0, 0, 0.15) !default;
+$shadow-ambient-4: 0 15px 36px 0 rgba(0, 0, 0, 0.15) !default;
+$shadow-ambient-5: 0 20px 43px 0 rgba(0, 0, 0, 0.17) !default;
+$shadow-ambient-6: 0 30px 53px 0 rgba(0, 0, 0, 0.18) !default;
+
+$shadow-direct-0: 0 1px 2px 0 rgba(0, 0, 0, 0) !default;
+$shadow-direct-1: 0 1px 2px 0 rgba(0, 0, 0, 0.14) !default;
+$shadow-direct-2: 0 3px 7px 0 rgba(0, 0, 0, 0.16) !default;
+$shadow-direct-3: 0 5px 1px 0 rgba(0, 0, 0, 0.18) !default;
+$shadow-direct-4: 0 8px 11px 0 rgba(0, 0, 0, 0.22) !default;
+$shadow-direct-5: 0 12px 22px 0 rgba(0, 0, 0, 0.2) !default;
+$shadow-direct-6: 0 20px 18px 0 rgba(0, 0, 0, 0.18) !default;
+
+// ----------------------------
+// EASINGS
+
+$ease-50: 0.05s ease 0s !default;
+$ease-100: 0.1s ease 0s !default;
+$ease-out-100: 0.1s ease-out 0s !default;
+$ease-200: 0.2s ease 0s !default;
+$ease-out-200: 0.2s ease-out 0s !default;
+$ease-300: 0.3s ease 0s !default;
+$ease-400: 0.4s ease 0s !default;
+$ease-200-delayed: 0.2s ease-out 0.2s !default;
+$ease-100-delayed: 0.1s ease-out 0.1s !default;
+$ease-600: 0.6s ease 0s !default;
+
+$allEase-out: all .3s ease-out;
+
+$slow-end-anim: cubic-bezier(0.25, 0.25, 0, 0.995) !default;
+
+$mobile-header: _get-rem(80px);
+
+// Displays
+
+$display: (
+  block: (
+    display: block
+  ),
+  inline-block: (
+    display: inline-block
+  ),
+  flex: (
+    display: flex
+  ),
+  inline-flex: (
+    display: inline-flex
+  )
+)

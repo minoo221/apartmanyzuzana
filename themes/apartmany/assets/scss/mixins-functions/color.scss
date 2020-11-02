@@ -1,0 +1,53 @@
+// ---------------------------------------------
+// MIXINS AND FUNCTIONS - COLOR
+// ---------------------------------------------
+
+// -------------------------------
+// MIXINS
+
+@mixin color(
+  $color-fallback,
+  $color
+) {
+  color: $color-fallback;
+  color: $color;
+}
+
+// -------------------------------
+// FUNCTIONS
+
+@function _color($theme, $weight: 500) {
+  @if map-has-key($color-palette, $theme) {
+
+    $color-theme: map-get($color-palette, $theme);
+    $color: null;
+
+    // if color is type of color, eg. no map
+    @if type-of($color-theme) == color {
+      @return _color-shade($color-theme, $weight);
+    }
+
+    @if map-has-key($color-theme, $weight) {
+      $color: map-get($color-theme, $weight);
+    } @else {
+      $base-color: map-get($color-theme, 500);
+      $color: _color-shade($base-color, $weight);
+    }
+
+    @return $color;
+  } @else if type-of($theme) == color {
+    @return _color-shade($theme, $weight);
+  } @else {
+    @warn '$theme is not a color or defined';
+  }
+}
+
+@function _color-shade($color, $weight) {
+  @if $weight > 500 and $color {
+    @return mix(black, $color, ($weight - 500) / 5 );
+  } @else if $weight < 500 and $color {
+    @return mix(white, $color, (500 - $weight) / 5 );
+  } @else {
+    @return $color;
+  }
+}

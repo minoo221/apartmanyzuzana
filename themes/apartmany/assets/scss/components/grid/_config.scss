@@ -1,0 +1,24 @@
+// ---------------------------------------------
+// GRID - CONFIGURATION
+// ---------------------------------------------
+
+// wrappers
+
+$wrapper-paddings: (
+  xs: _get-space('h'),
+  xl: _get-space('h'),
+); // You only need to set those breakpoints, where a change should occur.
+
+// grid
+
+$grid-base: 12 !default;
+
+$gutters: (
+  xs: _get-space('h'),
+  m: _get-space('h'),
+  xl: _get-space('h')
+);
+
+$gutters-form: (
+  default: _get-space('h'),
+);

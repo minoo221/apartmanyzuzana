@@ -1,0 +1,14 @@
+.fr-img-wrap {
+    position: relative;
+}
+
+.fr-inner {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: _color(white);
+    background: _color(primary);
+    padding: _get-space("v", "tiny");
+    text-transform: uppercase;
+    font-weight: 700;
+}

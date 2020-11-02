@@ -1,0 +1,43 @@
+// ---------------------------------------------
+// IMPORT ALL
+// ---------------------------------------------
+
+// VENDORS
+@import 'utilities/normalize';
+
+// FUNCTIONS
+@import 'mixins-functions/_main';
+
+// BASE
+@import 'base/config';
+@import 'base/globals';
+
+// COMPONENTSs
+@import 'components/_main';
+
+// SECTIONS
+@import 'sections/header';
+@import 'sections/home';
+@import 'sections/blog';
+@import 'sections/country';
+@import 'sections/accommodation';
+@import 'sections/contact';
+@import 'sections/footer';
+
+// UTILITIES
+@import 'utilities/general';
+@import 'utilities/layout';
+@import 'utilities/typography';
+@import 'utilities/visibility';
+@import 'utilities/spacing';
+@import 'utilities/border';
+@import 'utilities/display';
+@import 'utilities/rte';
+
+// Icons
+@import 'icons';
+
+// SHAME
+@import 'shame/general';
+
+

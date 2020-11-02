@@ -1,0 +1,88 @@
+// ---------------------------------------------
+// SPACING UTILITIES
+// ---------------------------------------------
+
+@mixin spacing-utilities() {
+  $directions: (
+		  'top': 't',
+		  'right': 'r',
+		  'bottom': 'b',
+		  'left': 'l'
+  );
+
+  @each $spaceName, $spaceSize in $spaces-vertical {
+
+	@each $breakpoint, $size in $breakpoints {
+
+	  @include breakpoint( $breakpoint ) {
+
+		.mb#{_get-variant-name($breakpoint, '-')}#{_get-variant-name($spaceName, '-')} {
+		  margin-bottom: $spaceSize !important;
+		}
+
+		.mr#{_get-variant-name($breakpoint, '-')}#{_get-variant-name($spaceName, '-')} {
+		  margin-right: $spaceSize !important;
+		}
+
+		.ml#{_get-variant-name($breakpoint, '-')}#{_get-variant-name($spaceName, '-')} {
+		  margin-left: $spaceSize !important;
+		}
+
+		.pt#{_get-variant-name($breakpoint, '-')}#{_get-variant-name($spaceName, '-')} {
+		  padding-top: $spaceSize !important;
+		}
+
+		.pb#{_get-variant-name($breakpoint, '-')}#{_get-variant-name($spaceName, '-')} {
+		  padding-bottom: $spaceSize !important;
+		}
+
+		.pr#{_get-variant-name($breakpoint, '-')}#{_get-variant-name($spaceName, '-')} {
+		  padding-right: $spaceSize !important;
+		}
+
+		.pl#{_get-variant-name($breakpoint, '-')}#{_get-variant-name($spaceName, '-')} {
+		  padding-left: $spaceSize !important;
+		}
+	  }
+	}
+  }
+
+  @each $directionName, $directionSelector in $directions {
+
+	@each $breakpoint, $size in $breakpoints {
+
+	  @include breakpoint( $breakpoint ) {
+
+		.m#{_get-variant-name($directionSelector, '')}#{_get-variant-name($breakpoint, '-')}-none {
+		  margin-#{$directionName}: 0 !important;
+		}
+
+		.p#{_get-variant-name($directionSelector, '')}#{_get-variant-name($breakpoint, '-')}-none {
+		  padding-#{$directionName}: 0 !important;
+		}
+	  }
+	}
+  }
+
+  .no-mrg {
+	margin: 0 !important;
+  }
+
+  .no-pad {
+	padding: 0 !important;
+  }
+
+  .is-collapsed {
+    .mb-none-collapsed {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .mr-none-collapsed {
+    .is-collapsed & {
+      margin-right: 0 !important;
+    }
+  }
+}
+
+@include spacing-utilities;

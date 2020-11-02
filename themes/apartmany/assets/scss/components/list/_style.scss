@@ -1,0 +1,21 @@
+.list {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    &--vertical {
+        flex-direction: column;
+        .list {
+            &__item {
+                margin-bottom: 10px;
+            }
+            &__link {
+                color: _color(dark, 400);
+                text-decoration: none;
+                &:hover,
+                &:focus {
+                    color: _color(primary, 400)
+                }
+            }
+        }
+    }
+}

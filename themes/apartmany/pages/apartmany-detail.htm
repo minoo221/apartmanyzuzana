@@ -1,0 +1,55 @@
+title = "Apartmany detail"
+url = "/apartmany/:slug"
+layout = "default"
+is_hidden = 0
+==
+<?php
+use Kiwi\Accommodation\Models\Accommodation;
+
+
+function onStart(){
+    $slug = $this->param('slug');
+
+    $accommodations = new Accommodation;
+    $accommodation = new Accommodation;
+
+    $accommodations = Accommodation::where('type', 1)->get();
+    $accommodation = Accommodation::where('slug', $slug)->first();
+
+    $this['accommodations'] = $accommodations;
+    $this['accommodation'] = $accommodation;
+    $this["editUrl"] = Backend::url("kiwi/career/career/update");
+    //dd($accommodations);
+}
+?>
+==
+<section class="country-main">
+    <div class="container">
+        <div class="row">
+            <aside class="col--l-3">
+                <ul class="list list--vertical">
+                    {% for accommodation in accommodations  %}
+                    <li class="list__item">
+                        <a href="{{ 'apartmany-detail'|page({ slug: accommodation.slug }) }}" class="list__link">{{accommodation.name}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </aside>
+            <div class="col--l-9 text-content">
+                <h1>{{accommodation.name}}</h1>
+                {{accommodation.body|raw}}
+                {% if accommodation.gallery %}
+                <div class="gallery">
+                    {% for image in accommodation.gallery %}
+                    <a href="{{ image.thumb(400, auto) }}" class="gallery__item" data-fancybox="gallery">
+                        <img
+                                src="{{ image.path }}"
+                                alt="{{ image.title }}">
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

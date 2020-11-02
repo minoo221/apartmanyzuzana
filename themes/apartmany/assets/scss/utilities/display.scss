@@ -1,0 +1,7 @@
+.d {
+    @each $variant, $props in $display {
+        &#{_get-variant-name($variant)} {
+            @include css-map($props);
+        }
+    }
+}

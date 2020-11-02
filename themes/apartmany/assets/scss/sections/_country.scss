@@ -1,0 +1,31 @@
+.country-main {
+    padding-bottom: 180px;
+    @include breakpoint(m, down) {
+        padding-bottom: 40px;
+    }
+    p {
+        line-height: 24px;
+    }
+    .list {
+        &__item {
+            padding: 10px 0;
+            margin-bottom: 0;
+            border-bottom: 1px solid rgba(_color(grey, 50), .6);
+        }
+        &__link {
+            font-size: 19px;
+            font-weight: 700;
+        }
+    }
+}
+
+.text-content {
+    ul {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        li {
+            color: _color(dark, 700);
+            margin-bottom: 5px;
+        }
+    }
+}

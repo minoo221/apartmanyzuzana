@@ -1,0 +1,102 @@
+// ---------------------------------------------
+// FORMS - INPUT - STYLES
+// ---------------------------------------------
+
+.checkbox {
+    margin-bottom: 11px;
+    padding: 0;
+    cursor: pointer;
+    label {
+        color: _color(dark  );
+        padding-left: 0;
+        margin-left: 1.55rem;
+        cursor: pointer;
+    input {
+      display: none;
+      &:checked {
+        ~ {
+            .checkbox__text {
+                color: _color(secondary, 400);
+            }
+            .checkbox__indicator {
+                background: _color(primary, 400);
+                border: 1px solid _color(primary, 400);
+                &--white {
+                    .icon {
+                        color: _color(dark, 700);
+                        visibility: visible;
+                    }
+                }
+                &--dark {
+                    .icon {
+                        color: _color(white);
+                        visibility: visible;
+                    }
+                }
+                .icon {
+                    color: _color(white);
+                    visibility: visible;
+                }
+            }
+        }
+      }
+    }
+    .checkbox__text {
+        font-family: $font-family-mulish;
+        color: _color(dark, 700);
+    }
+    .checkbox__indicator {
+        position: absolute;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0.1rem;
+        margin-bottom: 0.1rem;
+        margin-left: -1.55rem;
+        width: 15px;
+        height: 15px;
+        background: white;
+        text-align: center;
+        line-height: 0.8rem;
+        border: 1px solid #888888;
+        .icon {
+            font-size: 9px;
+            line-height: 0;
+            visibility: hidden;
+        }
+    }
+    .checkbox__count {
+        color: #979797;
+    }
+  }
+}
+.checkbox-color {
+    display: flex;
+    margin-bottom: 21px;
+    .checkbox {
+        padding-right: 0;
+        input {
+            &:checked {
+                ~ {
+                    .checkbox__indicator {
+                        &--white {
+                            .icon {
+                                color: _color(dark, 700) !important;
+                            }
+                        }
+                        .icon {
+                            color: _color(white);
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+        }
+        .checkbox__indicator {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 1px solid _color(grey, 100) !important;
+        }
+    }
+}

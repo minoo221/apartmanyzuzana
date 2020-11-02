@@ -1,0 +1,42 @@
+title = "Krajina"
+url = "/krajina"
+layout = "default"
+is_hidden = 0
+
+[contenteditor]
+==
+<?php
+function onStart(){
+    use Kiwi\Country\Models\Category;
+
+    $products = [];
+    $category = Category::where("slug", $this->param('slug'))->first();
+    $categories = Category::get();
+
+    if ($category) {
+        $products = $category->products->sortBy('sort_order');
+    }
+    $this["products"] = $products;
+    $this["categories"] = $categories;
+    $this["category"] = $category;
+    }
+?>
+==
+<section class="country-main">
+    <div class="container">
+        <div class="row">
+            <aside class="col--l-3">
+                <ul class="list list--vertical">
+                    {% for category in categories  %}
+                    <li class="list__item">
+                        <a href="{{ 'krajina-detail'|page({ slug: category.slug }) }}" class="list__link">{{category.category_name}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </aside>
+            <div class="col--l-9">
+                {% component 'contenteditor' file="country.htm" tools="*" %}
+            </div>
+        </div>
+    </div>
+</section>

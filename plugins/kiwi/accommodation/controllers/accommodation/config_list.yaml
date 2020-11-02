@@ -1,0 +1,12 @@
+list: $/kiwi/accommodation/models/accommodation/columns.yaml
+modelClass: Kiwi\Accommodation\Models\Accommodation
+title: Accommodation
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'kiwi/accommodation/accommodation/update/:id'

@@ -1,0 +1,32 @@
+// ---------------------------------------------
+// IMPORT FORMS
+// ---------------------------------------------s
+.form {
+    .form-group {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        label {
+            display: block;
+            color: _color(dark, 700);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .text-primary {
+            color: _color(primary, 400)
+        }
+    }
+    .agree {
+        display: flex;
+        align-items: center;
+    }
+    .btn-submit {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+// STYLES
+@import 'input/style';
+@import 'checkbox/style';
+@import 'textarea/style';

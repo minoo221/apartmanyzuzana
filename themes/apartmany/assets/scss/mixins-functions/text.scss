@@ -1,0 +1,53 @@
+// ---------------------------------------------
+// MIXINS AND FUNCTIONS - TEXT
+// ---------------------------------------------
+
+// -------------------------------
+// MIXINS
+
+@mixin font-size(
+  $font-size,
+  $font-size-r: $default-font-size) {
+  $font-size: round($font-size);
+  font-size: $font-size;
+  font-size: ($font-size / $default-font-size) * 1rem;
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// -------------------------------
+// FUNCTIONS
+
+/// Get size in pixels based on modular scale from $typography-settings
+/// @param {Number} $level - Number which specifies level on modular typographic scale
+/// @param {String} $breakpoint ['default'] - Breakpoint in $typography settings
+/// @param {Number} $base-font-size [value from $typography-settings] - Base font size
+/// @return {Number}
+@function _modular-scale(
+  $level,
+  $breakpoint: null,
+  $base-font-size: null
+) {
+  $breakpoint: if($breakpoint, $breakpoint, 'default');
+
+  @if (not $base-font-size) {
+    $base-font-size: _map-deep-get($typography-settings, $breakpoint, base-font-size);
+  }
+
+  @return (
+    $base-font-size *
+    _pow(
+      _map-deep-get(
+        $typography-settings,
+        $breakpoint,
+        typographic-ratio
+      ),
+      $level
+    )
+  );
+}
+

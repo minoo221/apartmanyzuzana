@@ -1,0 +1,11 @@
+plugin:
+    name: 'kiwi.accommodation::lang.plugin.name'
+    description: 'kiwi.accommodation::lang.plugin.description'
+    author: Kiwi
+    icon: oc-icon-bed
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Ubytovanie
+        url: kiwi/accommodation/accommodation
+        icon: icon-bed

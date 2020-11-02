@@ -1,0 +1,84 @@
+.accommodation-home {
+    .row {
+        margin-bottom: 80px;
+        &:nth-child(even) {
+            .accommodation-home {
+                &__text {
+                    order: 2;
+                    align-items: flex-start;
+                    @include breakpoint(s, down) {
+                        order: 1;
+                        align-items: center;
+                    }
+                }
+                &__img {
+                    &:after {
+                        right: initial;
+                        left: -10px;
+                        @include breakpoint(m, down) {
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        @include breakpoint(m, down) {
+            align-items: center;
+        }
+        @include breakpoint(s, down) {
+           margin-bottom: 15px;
+        }
+    }
+    &__img {
+        position: relative;
+        @include breakpoint(m, down) {
+            order: 2;
+        }
+        &:after {
+            position: absolute;
+            bottom: -20px;
+            right: -10px;
+            content: "";
+            z-index: -1;
+            width: 200px;
+            height: 200px;
+            display: block;
+            background: url("../images/folkrol-vzor.png") 0 0 no-repeat;
+            background-size: cover;
+            @include breakpoint(m, down) {
+                right: 0;
+            }
+        }
+    }
+}
+.reviews {
+    margin-bottom: 80px;
+    .quote {
+        font-size: 100px;
+        font-family: $font-family-berkshire;
+        display: block;
+        height: 48px;
+    }
+    p {
+        text-align: center;
+        font-size: 24px;
+        font-family: $font-family-berkshire;
+        max-width: 768px;
+        margin: 0 auto;
+    }
+    .swiper-wrapper {
+        margin-bottom: 20px;
+    }
+    .swiper-pagination {
+        position: initial;
+        .swiper-pagination-bullet-active {
+            background: _color(primary);
+        }
+    }
+}

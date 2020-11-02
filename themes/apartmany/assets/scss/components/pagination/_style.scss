@@ -1,0 +1,17 @@
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+    &__item {
+        padding: 0 5px;
+    }
+    &__link {
+        font-weight: 700;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            color: _color(dark, 400);
+        }
+    }
+}

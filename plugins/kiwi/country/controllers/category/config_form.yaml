@@ -1,0 +1,10 @@
+name: Category
+form: $/kiwi/country/models/category/fields.yaml
+modelClass: Kiwi\Country\Models\Category
+defaultRedirect: kiwi/country/category
+create:
+    redirect: 'kiwi/country/category/update/:id'
+    redirectClose: kiwi/country/category
+update:
+    redirect: kiwi/country/category
+    redirectClose: kiwi/country/category

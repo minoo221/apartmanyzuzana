@@ -1,0 +1,234 @@
+// ---------------------------------------------
+// GRID - STYLES
+// ---------------------------------------------
+
+// CONTENTS
+// Wrappers
+// Grid
+// Grid types
+
+// ----------------------------
+// WRAPPERS
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @each $breakpoint, $width in $container-width {
+    @include breakpoint($breakpoint) {
+      max-width: $width;
+    }
+  }
+
+  @each $breakpoint, $padding in $wrapper-paddings {
+    @include breakpoint($breakpoint) {
+      padding-left: $padding;
+      padding-right: $padding;
+    }
+  }
+
+  &--small {
+    @each $breakpoint, $width in $container-small-width {
+      @include breakpoint($breakpoint) {
+        max-width: $width;
+      }
+    }
+
+    @each $breakpoint, $padding in $wrapper-paddings {
+      @include breakpoint($breakpoint) {
+        padding-left: $padding;
+        padding-right: $padding;
+      }
+    }
+  }
+} // /main wrapper
+
+// ----------------------------
+// GRID
+
+@mixin grid-layout($columns: 4) {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin grid-layout-item($columns) {
+  flex: 0 0 100%/$columns;
+  max-width: 100%/$columns;
+}
+
+@mixin grid-spacing($spacing: $gutters) {
+  @each $breakpoint, $gutter in $gutters {
+    @include breakpoint( $breakpoint ) {
+      margin-left: -$gutter;
+      margin-right: -$gutter;
+
+      > * {
+        padding: $gutter;
+      }
+    }
+  }
+}
+
+@mixin grid-layout-classes() {
+  .grid {
+    @include grid-layout();
+  }
+
+  .grid--spaced {
+    @include grid-spacing();
+  }
+
+  @each $breakpoint, $size in $breakpoints {
+    @include breakpoint( $breakpoint ) {
+      @for $i from 1 through 4 {
+        .grid-#{_get-variant-name($breakpoint, '-')}-#{$i} {
+          > * {
+            @include grid-layout-item($i);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include grid-layout-classes;
+
+@mixin row($gutters: $gutters) {
+  display: flex;
+  flex-wrap: wrap;
+
+  @each $breakpoint, $gutter in $gutters {
+    @include breakpoint( $breakpoint ) {
+      margin-left: -$gutter;
+      margin-right: -$gutter;
+    }
+  }
+}
+
+// row
+@mixin row-classes() {
+  .row {
+    @include row();
+
+    &--form {
+      @include row($gutters-form);
+    }
+  }
+}
+
+@include row-classes;
+
+// columns
+@mixin column( $gutters: $gutters ) {
+  @each $breakpoint, $gutter in $gutters {
+    @include breakpoint( $breakpoint ) {
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+  }
+}
+
+@mixin column-size( $width: $grid-base ) {
+  flex-basis: 100% / $grid-base * $width;
+  max-width: 100% / $grid-base * $width;
+}
+
+@mixin column-fill {
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+@mixin column-shrink {
+  max-width: auto;
+  flex: 0 0 auto;
+}
+
+@mixin column-classes() {
+  *[class*='col\-\-'],
+  .col {
+    flex: 1 0 100%;
+    max-width: 100%;
+
+    @include column();
+
+    .row--form & {
+      @include column($gutters-form);
+    }
+  }
+
+  @each $breakpoint, $size in $breakpoints {
+    @include breakpoint( $breakpoint ) {
+      @for $i from 1 through $grid-base {
+        .col-#{_get-variant-name($breakpoint, '-')}-#{$i} {
+          @include column-size( $i );
+        }
+      }
+      // Spacing
+      .col-#{_get-variant-name($breakpoint, '-')}-fill {
+        @include column-fill;
+      }
+
+      .col-#{_get-variant-name($breakpoint, '-')}-shrink {
+        @include column-shrink;
+      }
+    }
+  }
+}
+
+@include column-classes;
+
+// offsets
+@mixin column-offset($width) {
+  margin-left: 100% / $grid-base * $width;
+}
+
+@mixin column-offset-classes() {
+  .ofst--center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @each $breakpoint, $size in $breakpoints {
+    @include breakpoint($breakpoint) {
+      @for $i from 1 through $grid-base {
+        .ofst-#{_get-variant-name($breakpoint, '-')}-#{$i} {
+          @include column-offset($i);
+        }
+      }
+
+      .ofst-#{_get-variant-name($breakpoint, '-')}-center {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+@include column-offset-classes;
+
+// ----------------------------
+// Grid space
+
+@each $breakpoint, $size in $breakpoints {
+  @include breakpoint($breakpoint) {
+    .row-#{_get-variant-name($breakpoint, '-')}-space {
+      > *[class*='col\-\-'],
+      > .col {
+        margin-bottom: _get-space('v');
+      }
+    }
+  }
+}
+
+@each $breakpoint, $size in $breakpoints {
+  @include breakpoint($breakpoint) {
+    @for $i from 1 through 12 {
+      .order-#{_get-variant-name($breakpoint, '-')}-#{$i} {
+        order: #{$i};
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.media {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    @include breakpoint(s, down) {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    img {
+        @include breakpoint(s, down) {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 20px ;
+        }
+    }
+    &__body {
+        flex: 1;
+        @include breakpoint(s, down) {
+            flex: 0 0 100%;
+        }
+        .h5 {
+            a {
+                text-decoration: none;
+                &:hover,
+                &:focus {
+                    color: _color(dark, 400);
+                }
+            }
+        }
+    }
+}

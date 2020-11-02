@@ -1,0 +1,48 @@
+title = "Krajina detail"
+url = "/krajina/:slug"
+layout = "default"
+is_hidden = 0
+==
+<?php
+function onStart(){
+    use Kiwi\Country\Models\Category;
+
+    $products = [];
+    $category = Category::where("slug", $this->param('slug'))->first();
+    $categories = Category::get();
+
+    if ($category) {
+    $country = $category->country->sortBy('sort_order');
+    }
+    $this["country "] = $country;
+    $this["categories"] = $categories;
+    $this["category"] = $category;
+}
+?>
+==
+<section class="country-main">
+    <div class="container">
+        <div class="row">
+            <aside class="col--l-3">
+                <ul class="list list--vertical">
+                    {% for category in categories  %}
+                    <li class="list__item">
+                        <a href="{{ 'krajina-detail'|page({ slug: category.slug }) }}" class="list__link">{{category.category_name}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </aside>
+            <div class="col--l-9 text-content">
+                <h1>{{category.category_name}}</h1>
+                {% for country in category.country %}
+                <div class="row mb-x-large">
+                    <div class="col--12">
+                        <h2 class="mb-medium">{{country.name}}</h2>
+                        {{country.body|raw}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

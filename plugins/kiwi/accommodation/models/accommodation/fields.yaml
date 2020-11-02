@@ -1,0 +1,43 @@
+fields:
+    name:
+        label: Názov
+        span: auto
+        type: text
+    slug:
+        label: 'URL alias'
+        span: auto
+        preset:
+            field: name
+            type: slug
+        type: text
+    body:
+        label: Popis
+        size: ''
+        span: full
+        type: richeditor
+    thumb:
+        label: 'Hlavný obrázok'
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    gallery:
+        label: Galéria
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    type:
+        label: 'Je to apartmán?'
+        span: auto
+        type: switch

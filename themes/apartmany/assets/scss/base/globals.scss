@@ -1,0 +1,135 @@
+// ---------------------------------------------
+// GLOBALS
+// ---------------------------------------------
+
+html,
+body {
+  padding: 0;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  background: $default-bg-color;
+  font-family: $default-font-family;
+  color: $default-text-color;
+}
+
+* { box-sizing: border-box; }
+*::after { box-sizing: border-box; }
+*::before { box-sizing: border-box; }
+
+::selection {
+  background-color: fade-out($selection-bg-color, 0.1);
+  color: $selection-text-color;
+}
+
+::-moz-selection { // stylelint-disable-line
+  background-color: fade-out($selection-bg-color, 0.1);
+  color: $selection-text-color;
+}
+
+a {
+  transition: $ease-300;
+  color: _color(primary, 500);
+  font-size: _get-rem(15);
+  text-decoration: underline;
+
+  u {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+    &.text-color-semigrey {
+      color: _color(grey, 500);
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+
+// ---------------------------------------------
+// FORMS - GLOBALS - CONFIGURATION
+// ---------------------------------------------
+
+$form-m: _get-space('v');
+$form-control-block-m: 5px !default;
+
+$form-bgc: rgba(_color(dark, 900), 0.1);
+$form-b-w: 1px;
+$form-b-s: solid;
+$form-b-c: _color(grey, 50);
+$form-b-r: 0;
+$form-c: _color(white);
+$form-t: border, box-shadow $ease-300;
+
+$form-focus-bs: #{$shadow-direct-1, $shadow-ambient-1};
+$form-focus-b-c: _color(primary, 500);
+
+$form-disabled-c: _color(grey, 500);
+$form-disabled-b-c: _color(grey, 200);
+
+$form-readonly-c: _color(grey, 600);
+$form-readonly-b-c: _color(grey, 300);
+
+$form-error-c: _color(error, 500);
+$form-error-b-c: _color(error, 100);
+$form-error-bgc: _color(error, 50);
+
+
+// -----------------
+// form controls
+
+.form {
+  @include breakpoint(m, down) {
+    padding: _get-space("h", "medium");
+  }
+
+  &__control {
+    width: 100%;
+    margin-bottom: _get-space("v", "large");
+    padding: 0 _get-space("h", "large");
+    @include breakpoint(s, down) {
+      padding: 0;
+      text-align: center;
+    }
+  }
+}
+
+.form--block {
+  .form-control:not(:last-child),
+  hr {
+    margin-bottom: $form-control-block-m;
+  }
+}
+
+.alert {
+  &.alert-danger {
+    color: _color(warning);
+    background: rgba(_color(warning), 0.3);
+    border: 1px solid _color(warning);
+    padding: _get-space("v", "medium");
+    border-radius: 2px;
+  }
+
+  &.alert-success {
+    color: _color(green);
+    background: rgba(_color(green), 0.3);
+    border: 1px solid _color(green);
+    padding: _get-space("v", "medium");
+    border-radius: 2px;
+  }
+}
+
+button {
+  background: transparent;
+  border: 0;
+}
