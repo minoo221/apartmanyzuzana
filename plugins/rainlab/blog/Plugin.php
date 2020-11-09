@@ -177,6 +177,6 @@ class Plugin extends PluginBase
             }
 
             $widget->secondaryTabs['fields']['content']['type'] = 'richeditor';
-        });s
+        });
     }
 }
