@@ -168,5 +168,15 @@ class Plugin extends PluginBase
                 return Post::resolveMenuItem($item, $url, $theme);
             }
         });
+        Event::listen('backend.form.extendFieldsBefore', function($widget) {
+            // Extend only the Blog\Posts controller & Extend only Blog\Post model
+            if (!($widget->getController() instanceof \RainLab\Blog\Controllers\Posts
+                && $widget->model instanceof \RainLab\Blog\Models\Post)
+            ){
+                return;
+            }
+
+            $widget->secondaryTabs['fields']['content']['type'] = 'richeditor';
+        });s
     }
 }
