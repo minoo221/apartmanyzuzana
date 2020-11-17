@@ -3,14 +3,15 @@ url = "/"
 layout = "default"
 is_hidden = 0
 
+[contenteditor]
 ==
 <section class="accommodation-home">
     <div class="container">
         <div class="row">
             <div class="col--m-6 accommodation-home__text">
-                <h2>Apartmán č.1</h2>
-                <p>Romantický apartmán s krbom</p>
-                <a href="#">Zistiť viac</a>
+                {% component 'contenteditor' file="apartman-nadpis-1.htm" fixture="h2" %}
+                {% component 'contenteditor' file="apartman-body-1.htm" fixture="p" %}
+                <a href="{{ 'apartmany-detail'|page({ slug: 'apartman-1'}) }}">Zistiť viac</a>
             </div>
             <div class="col--m-6 accommodation-home__img">
                 <img src="{{ 'assets/images/apartman-1.jpg'|theme }}" alt="Apartmán č.1">
@@ -18,9 +19,9 @@ is_hidden = 0
         </div>
         <div class="row">
             <div class="col--m-6 accommodation-home__text">
-                <h2>Apartmán č.2</h2>
-                <p>Romantický apartmán s krbom</p>
-                <a href="#">Zistiť viac</a>
+                {% component 'contenteditor' file="apartman-nadpis-2.htm" fixture="h2" %}
+                {% component 'contenteditor' file="apartman-body-2.htm" fixture="p" %}
+                <a href="{{ 'apartmany-detail'|page({ slug: 'apartman-2'}) }}">Zistiť viac</a>
             </div>
             <div class="col--m-6 accommodation-home__img">
                 <img src="{{ 'assets/images/apartman-2.jpg'|theme }}" alt="Apartmán č.1">
@@ -28,9 +29,9 @@ is_hidden = 0
         </div>
         <div class="row">
             <div class="col--m-6 accommodation-home__text">
-                <h2>Chata</h2>
-                <p>Útulná chata pod lesom v blízkosti horských lúk a pasienkov</p>
-                <a href="#">Zistiť viac</a>
+                {% component 'contenteditor' file="chata-nadpis-1.htm" fixture="h2" %}
+                {% component 'contenteditor' file="chata-body-1.htm" fixture="p" %}
+                <a href="{{ 'chata-pod-palenicou'|page }}   ">Zistiť viac</a>
             </div>
             <div class="col--m-6 accommodation-home__img">
                 <img src="{{ 'assets/images/chata.jpg'|theme }}" alt="Apartmán č.1">

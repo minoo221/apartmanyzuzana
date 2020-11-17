@@ -3,6 +3,9 @@ sortOrder = "title asc"
 
 [localePicker]
 forceUrl = 0
+
+[contenteditor]
+file = "apartments.SK.htm"
 ==
 <header class="header">
     <div class="header__top">
@@ -27,8 +30,8 @@ forceUrl = 0
     {% if this.page.id == 'home' %}
     {% component 'sliderstop' %}
     <div class="slider-text">
-        <h1 class="h1">Máte radi pokoj, spev vtáčikov a voľnosť pohybu ?</h1>
-        <p>Ponúkame Vám ubytovanie v srdci Liptova v samostatnom apartmánovom domčeku alebo na chate priamo pod lesom.</p>
+        {% component 'contenteditor' file="header-nadpis.htm" fixture="h1" class="h1" %}
+        {% component 'contenteditor' file="header-body.htm" fixture="p" %}
     </div>
     {% endif %}
 </header>
