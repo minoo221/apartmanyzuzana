@@ -9,28 +9,36 @@ is_hidden = 0
             <div class="col--l-5">
                 <h1>Kontakt</h1>
                 <address>
-                    Pavčina Lehota 48,<br/>
-                    Liptovský Mikuláš 031 01,<br/>
-                    Slovensko
+                    {{contact().address}}<br/>
+                    {{contact().city}} {{contact().psc}}<br/>
+                    {{contact().country}}
                 </address>
                 <h2 class="h1">Rezervácie</h2>
                 <ul class="contact-list">
-                    <li class="contact-list__item">
+                    {% if contact().telP %}
+                    <li class="footer-contact__item">
                         <i class="icon icon-phone-call"></i>
-                        <a href="tel:+421903727583">+421 903 727 583</a>
+                        <a href="tel:{{contact().telP|replace({' ': ''}) }}">{{contact().telP}}</a>
                     </li>
-                    <li class="contact-list__item">
+                    {% endif %}
+                    {% if contact().telD %}
+                    <li class="footer-contact__item">
                         <i class="icon icon-phone-call"></i>
-                        <a href="tel:+421902468677">+421 902 468 677</a>
+                        <a href="tel:{{contact().telD|replace({' ': ''}) }}">{{contact().telD}}</a>
                     </li>
-                    <li class="contact-list__item">
+                    {% endif %}
+                    {% if contact().telT %}
+                    <li class="footer-contact__item">
                         <i class="icon icon-phone-call"></i>
-                        <a href="tel:+421445548154">+421 445 548 154</a>
+                        <a href="tel:{{contact().telT|replace({' ': ''}) }}">{{contact().telT}}</a>
                     </li>
-                    <li class="contact-list__item">
+                    {% endif %}
+                    {% if contact().telT %}
+                    <li class="footer-contact__item">
                         <i class="icon icon-envelope"></i>
-                        <a href="mailto:zzuzanas@gmail.com">zzuzanas@gmail.com</a>
+                        <a href="mailto:{{contact().email}}">{{contact().email}}</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="col--l-7">
