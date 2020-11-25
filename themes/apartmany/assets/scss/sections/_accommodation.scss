@@ -20,5 +20,14 @@
             color: _color(white);
             margin-bottom: 0;
         }
+        &--without-img {
+            padding: 40px 0;
+            h1 {
+                color: _color(dark, 700)
+            }
+            &:after {
+                display: none;
+            }
+        }
     }
 }

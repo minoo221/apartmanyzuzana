@@ -21,11 +21,19 @@ function onStart(){
 ?>
 ==
 <div class="accommodation">
+    {% if accommodation.thumb %}
     <div class="accommodation__header" style="background: url('{{accommodation.thumb.path}}')">
         <div class="container">
             <h1>{{accommodation.name}}</h1>
         </div>
     </div>
+    {% else %}
+    <div class="accommodation__header accommodation__header--without-img">
+        <div class="container">
+            <h1>{{accommodation.name}}</h1>
+        </div>
+    </div>
+    {% endif %}
     <div class="container">
         <div class="accommodation__content mb-x-large">
             {{accommodation.body|raw}}
