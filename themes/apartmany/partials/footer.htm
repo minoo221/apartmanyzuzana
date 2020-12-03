@@ -9,7 +9,7 @@ function onStart()
 <footer class="footer">
     <div class="container">
         <div class="row mb-m-x-large">
-            <div class="col--m-4">
+            <div class="col--m-6 col--l-3">
                 <h2 class="h5">Apartmány Zuzana</h2>
                 <address>
                     {{contact().address}}<br/>
@@ -17,7 +17,15 @@ function onStart()
                     {{contact().country}}
                 </address>
             </div>
-            <div class="col--m-5">
+            <div class="col--m-6 col--l-3">
+                <h2 class="h5">Chata pod Pálenicou</h2>
+                <address>
+                    {{contact().addressD}}<br/>
+                    {{contact().city}} {{contact().psc}}<br/>
+                    {{contact().country}}
+                </address>
+            </div>
+            <div class="col--m-6 col--l-3">
                 <h2 class="h5">Rezervácie</h2>
                 <ul class="footer-contact">
                     {% if contact().telP %}
@@ -46,11 +54,14 @@ function onStart()
                     {% endif %}
                 </ul>
             </div>
-            <div class="col--m-3">
+            <div class="col--m-6 col--l-3">
                 <h2 class="h5">Informácie</h2>
                 <ul class="list list--vertical">
                     <li class="list__item">
-                        <a href="#" class="list__link">Kontakt</a>
+                        <a href="#" class="list__link">Ubytovací poriadok</a>
+                    </li>
+                    <li class="list__item">
+                        <a href="{{'contact'|page}}" class="list__link">Kontakt</a>
                     </li>
                     <li class="list__item">
                         <a href="#" class="list__link">Ochrana osobných údajov</a>

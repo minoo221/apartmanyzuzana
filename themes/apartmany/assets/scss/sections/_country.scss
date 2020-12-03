@@ -6,6 +6,12 @@
     p {
         line-height: 24px;
     }
+    ul {
+        li {
+            color: _color(dark, 700);
+            margin-bottom: 10px;
+        }
+    }
     .list {
         &__item {
             padding: 10px 0;

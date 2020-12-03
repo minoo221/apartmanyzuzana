@@ -8,8 +8,15 @@ is_hidden = 0
         <div class="row">
             <div class="col--l-5">
                 <h1>Kontakt</h1>
+                <h3>Apartmány</h3>
                 <address>
                     {{contact().address}}<br/>
+                    {{contact().city}} {{contact().psc}}<br/>
+                    {{contact().country}}
+                </address>
+                <h3>Chata pod Pálenicou</h3>
+                <address>
+                    {{contact().addressD}}<br/>
                     {{contact().city}} {{contact().psc}}<br/>
                     {{contact().country}}
                 </address>
@@ -42,7 +49,7 @@ is_hidden = 0
                 </ul>
             </div>
             <div class="col--l-7">
-                <form data-request="{{ emptyForm }}::onFormSubmit" class="form" data-request-validate>
+                <form data-request="{{ emptyForm }}::onFormSubmit" class="form mb-large" data-request-validate>
                     {{ form_token() }}
                     <div class="row">
                         <div class="form-group col--12">
