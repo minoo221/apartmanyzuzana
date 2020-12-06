@@ -21,7 +21,7 @@ is_hidden = 0
                     {{contact().country}}
                 </address>
                 <h2 class="h1">Rezervácie</h2>
-                <ul class="contact-list">
+                <ul class="footer-contact contact-list">
                     {% if contact().telP %}
                     <li class="footer-contact__item">
                         <i class="icon icon-phone-call"></i>
@@ -81,13 +81,13 @@ is_hidden = 0
                                 <label>
                                     <input name="" type="checkbox" value="1">
                                     <span class="checkbox__indicator"><i class="icon icon-checked"></i></span>
-                                    Chci se zaregistrovat
+                                    Súhlasím s <a href="{{'ochrana-udajov'|page}}">spracovaním osobných údajov</a>
                                 </label>
                             </div>
                             <div data-validate-for="suhlas-so-spracovanim-udajov" class="agree-validate text-primary"></div>
                         </div>
                         <div class="col--12 col--m-6 btn-submit">
-                            <button type="submit" class="btn btn--primary" onClick="fbq('track', 'SubmitApplication');">Odoslať</button>
+                            <button type="submit" class="btn btn--primary">Odoslať</button>
                         </div>
                         <div id="{{ emptyForm }}_forms_flash" class="form-flash"></div>
                     </div>

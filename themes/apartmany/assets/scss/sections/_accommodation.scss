@@ -30,4 +30,11 @@
             }
         }
     }
+    &__content {
+        ul {
+            li {
+                color: _color(dark, 700s)
+            }
+        }
+    }
 }
