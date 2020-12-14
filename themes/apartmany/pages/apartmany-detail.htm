@@ -39,7 +39,7 @@ function onStart(){
                 <h1>{{accommodation.name}}</h1>
                 {{accommodation.body|raw}}
                 {% if accommodation.gallery %}
-                <div class="gallery">
+                <div class="gallery mb-x-large">
                     {% for image in accommodation.gallery %}
                     <a href="{{ image.thumb(400, auto) }}" class="gallery__item" data-fancybox="gallery">
                         <img

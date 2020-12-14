@@ -14,7 +14,7 @@ categoryPage = "blog"
         <div class="blog-detail__content">{{ post.content|raw }}</div>
         
         {% if post.featured_images.count %}
-            <div class="gallery">
+            <div class="gallery mb-x-large">
                 {% for image in post.featured_images %}
                 <a href="{{ image.thumb(400, auto) }}" class="gallery__item" data-fancybox="gallery">
                     <img

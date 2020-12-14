@@ -1,0 +1,11 @@
+plugin:
+    name: 'kiwi.reviews::lang.plugin.name'
+    description: 'kiwi.reviews::lang.plugin.description'
+    author: Kiwi
+    icon: oc-icon-star
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Recenzie
+        url: kiwi/reviews/reviews
+        icon: icon-life-ring

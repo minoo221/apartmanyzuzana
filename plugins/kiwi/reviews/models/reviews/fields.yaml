@@ -1,0 +1,10 @@
+fields:
+    name:
+        label: Meno
+        span: auto
+        type: text
+    body:
+        label: Hodnotenie
+        size: ''
+        span: auto
+        type: textarea

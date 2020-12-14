@@ -1,0 +1,8 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table kiwi_reviews_reviews'
+    - builder_table_create_kiwi_reviews_reviews.php
+1.0.3:
+    - 'Updated table kiwi_reviews_reviews'
+    - builder_table_update_kiwi_reviews_reviews.php

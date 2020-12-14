@@ -1,0 +1,10 @@
+name: Reviews
+form: $/kiwi/reviews/models/reviews/fields.yaml
+modelClass: Kiwi\Reviews\Models\Reviews
+defaultRedirect: kiwi/reviews/reviews
+create:
+    redirect: 'kiwi/reviews/reviews/update/:id'
+    redirectClose: kiwi/reviews/reviews
+update:
+    redirect: kiwi/reviews/reviews
+    redirectClose: kiwi/reviews/reviews
