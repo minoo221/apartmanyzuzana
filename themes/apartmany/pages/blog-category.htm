@@ -1,5 +1,5 @@
-title = "Blog"
-url = "/clanky/:page?"
+title = "Blog category"
+url = "/blog/kategoria/:slug/:page?"
 layout = "default"
 is_hidden = 0
 
@@ -10,6 +10,7 @@ categoryPage = "blog-category"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
 postsPerPage = 10
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
@@ -45,8 +46,8 @@ postPage = "blog-detail"
                 </ul>
             </aside>
             <div class="col--l-9">
-            {% set posts = blogPosts.posts %}
-            {% for post in posts %}
+                {% set posts = blogPosts.posts %}
+                {% for post in posts %}
                 <div class="media">
                     <img src="{{ post.thumb.thumb(200, 200, {'mode':'crop'}) }}" class="mr-medium" alt="{% if post.thumb.title %}{{post.thumb.title}}{% else %}{{post.title}}{% endif %}">
                     <div class="media__body">
@@ -59,24 +60,24 @@ postPage = "blog-detail"
                         <a href="{{post.url}}" class="read-more">Čítať viac</a>
                     </div>
                 </div>
-            {% endfor %}
+                {% endfor %}
 
                 {% if posts.lastPage > 1 %}
-                    <ul class="pagination">
-                        {% if posts.currentPage > 1 %}
-                            <li class="pagination__item"><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}" class="pagination__link">&larr; Prev</a></li>
-                        {% endif %}
+                <ul class="pagination">
+                    {% if posts.currentPage > 1 %}
+                    <li class="pagination__item"><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}" class="pagination__link">&larr; Prev</a></li>
+                    {% endif %}
 
-                        {% for page in 1..posts.lastPage %}
-                            <li class="pagination__item {{ posts.currentPage == page ? 'active' : null }}">
-                                <a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): page }) }}" class="pagination__link">{{ page }}</a>
-                            </li>
-                        {% endfor %}
+                    {% for page in 1..posts.lastPage %}
+                    <li class="pagination__item {{ posts.currentPage == page ? 'active' : null }}">
+                        <a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): page }) }}" class="pagination__link">{{ page }}</a>
+                    </li>
+                    {% endfor %}
 
-                        {% if posts.lastPage > posts.currentPage %}
-                            <li class="pagination__item"><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}" class="pagination__link">Next &rarr;</a></li>
-                        {% endif %}
-                    </ul>
+                    {% if posts.lastPage > posts.currentPage %}
+                    <li class="pagination__item"><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}" class="pagination__link">Next &rarr;</a></li>
+                    {% endif %}
+                </ul>
                 {% endif %}
             </div>
         </div>

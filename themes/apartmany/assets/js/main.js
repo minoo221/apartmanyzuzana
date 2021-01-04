@@ -15,8 +15,10 @@ $(function() {
 
 	var reviewsSlider = new Swiper('.reviews .swiper-container', {
 		loop: true,
+		autoHeight: true,
 		pagination: {
 			el: '.reviews .swiper-pagination',
+			clickable: true,
 		},
 	});
 
