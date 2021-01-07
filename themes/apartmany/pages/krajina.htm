@@ -37,6 +37,17 @@ function onStart(){
             <div class="col--l-12">
                 {% component 'contenteditor' file="country.htm" tools="*" %}
             </div>
+            {% if contact().images %}
+            <div class="gallery mb-x-large">
+                {% for image in contact().images %}
+                <a href="{{ image.thumb(400, auto) }}" class="gallery__item" data-fancybox="gallery">
+                    <img
+                            src="{{ image.path }}"
+                            alt="{{ image.title }}">
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
     </div>
 </section>
