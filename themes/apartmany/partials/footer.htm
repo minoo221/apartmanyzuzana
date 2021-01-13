@@ -10,7 +10,7 @@ function onStart()
     <div class="container">
         <div class="row mb-m-x-large">
             <div class="col--m-6 col--l-3">
-                <h2 class="h5">Apartmány Zuzana</h2>
+                <h2 class="h5">{{ 'Apartmány Zuzana'|_ }}</h2>
                 <address>
                     {{contact().address}}<br/>
                     {{contact().city}} {{contact().psc}}<br/>
@@ -18,7 +18,7 @@ function onStart()
                 </address>
             </div>
             <div class="col--m-6 col--l-3">
-                <h2 class="h5">Chata pod Pálenicou</h2>
+                <h2 class="h5">{{ 'Chata pod Pálenicou'|_ }}</h2>
                 <address>
                     {{contact().addressD}}<br/>
                     {{contact().city}} {{contact().psc}}<br/>
@@ -26,7 +26,7 @@ function onStart()
                 </address>
             </div>
             <div class="col--m-6 col--l-3">
-                <h2 class="h5">Rezervácie</h2>
+                <h2 class="h5">{{ 'Rezervácie'|_ }}</h2>
                 <ul class="footer-contact">
                     {% if contact().telP %}
                     <li class="footer-contact__item">
@@ -55,25 +55,25 @@ function onStart()
                 </ul>
             </div>
             <div class="col--m-6 col--l-3">
-                <h2 class="h5">Informácie</h2>
+                <h2 class="h5">{{ 'Informácie'|_ }}</h2>
                 <ul class="list list--vertical">
                     <li class="list__item">
-                        <a href="{{'ubytovaci-poriadok'|page}}" class="list__link">Ubytovací poriadok</a>
+                        <a href="{{'ubytovaci-poriadok'|page}}" class="list__link">{{ 'Ubytovací prodiadok'|_ }}</a>
                     </li>
                     <li class="list__item">
-                        <a href="{{'kontakt'|page}}" class="list__link">Kontakt</a>
+                        <a href="{{'kontakt'|page}}" class="list__link">{{ 'Kontakt'|_ }}</a>
                     </li>
                     <li class="list__item">
-                        <a href="{{'ochrana-udajov'|page}}" class="list__link">Ochrana osobných údajov</a>
+                        <a href="{{'ochrana-udajov'|page}}" class="list__link">{{ 'Ochrana osobných údajov'|_ }}</a>
                     </li>
                     <li class="list__item">
-                        <a href="{{'cookies'|page}}" class="list__link">Cookies</a>
+                        <a href="{{'cookies'|page}}" class="list__link">{{ 'Cookies'|_ }}</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="text-center">
-            <p>&copy; {{currentYear}} Apartmány Zuzana. Vytvoril <a href="mailto:milanblasko28@gmail.com">Milan</a>.</p>
+            <p>&copy; {{currentYear}} {{ 'Apartmány Zuzana'|_ }}. {{ 'Vytvoril'|_ }} <a href="mailto:milanblasko28@gmail.com">Milan</a>.</p>
         </div>
     </div>
 </footer>

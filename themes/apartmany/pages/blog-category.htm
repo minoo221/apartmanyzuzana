@@ -20,11 +20,11 @@ postPage = "blog-detail"
 <section class="blog">
     <div class="container">
         <div class="text-center">
-            <h1 class="mb-x-large">Aktivity</h1>
+            <h1 class="mb-x-large">{{ 'Aktivity'|_ }}</h1>
         </div>
         <div class="row">
             <aside class="col--l-3">
-                <h2 class="h4">Kategórie</h2>
+                <h2 class="h4">{{ 'Kategórie'|_ }}</h2>
                 <ul class="list list--vertical">
                     {% if blogCategories.categories|length > 0 %}
                     {% set categories = blogCategories.categories %}
@@ -40,7 +40,7 @@ postPage = "blog-detail"
                     {% endfor %}
                     {% else %}
                     <li class="list-group-item align-items-center">
-                        Žiadne kategórie
+                        {{ 'Žiadne kategórie'|_ }}
                     </li>
                     {% endif %}
                 </ul>
@@ -57,7 +57,7 @@ postPage = "blog-detail"
                         {% else %}
                         <p>{{html_strip(html_limit(post.content, 250)|raw)}}...</p>
                         {% endif %}
-                        <a href="{{post.url}}" class="read-more">Čítať viac</a>
+                        <a href="{{post.url}}" class="read-more">{{ 'Čítať viac'|_ }}</a>
                     </div>
                 </div>
                 {% endfor %}
@@ -65,7 +65,7 @@ postPage = "blog-detail"
                 {% if posts.lastPage > 1 %}
                 <ul class="pagination">
                     {% if posts.currentPage > 1 %}
-                    <li class="pagination__item"><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}" class="pagination__link">&larr; Prev</a></li>
+                    <li class="pagination__item"><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}" class="pagination__link">&larr;</a></li>
                     {% endif %}
 
                     {% for page in 1..posts.lastPage %}
@@ -75,7 +75,7 @@ postPage = "blog-detail"
                     {% endfor %}
 
                     {% if posts.lastPage > posts.currentPage %}
-                    <li class="pagination__item"><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}" class="pagination__link">Next &rarr;</a></li>
+                    <li class="pagination__item"><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}" class="pagination__link">&rarr;</a></li>
                     {% endif %}
                 </ul>
                 {% endif %}

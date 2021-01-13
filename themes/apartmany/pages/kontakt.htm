@@ -7,20 +7,20 @@ is_hidden = 0
     <div class="container">
         <div class="row">
             <div class="col--l-5">
-                <h1>Kontakt</h1>
-                <h3>Apartmány</h3>
+                <h1>{{ 'Kontakt'|_ }}</h1>
+                <h3>{{ 'Apartmány'|_ }}</h3>
                 <address>
                     {{contact().address}}<br/>
                     {{contact().city}} {{contact().psc}}<br/>
                     {{contact().country}}
                 </address>
-                <h3>Chata pod Pálenicou</h3>
+                <h3>{{ 'Chata pod Pálenicou'|_ }}</h3>
                 <address>
                     {{contact().addressD}}<br/>
                     {{contact().city}} {{contact().psc}}<br/>
                     {{contact().country}}
                 </address>
-                <h2 class="h1">Rezervácie</h2>
+                <h2 class="h1">{{ 'Rezervácie'|_ }}</h2>
                 <ul class="footer-contact contact-list">
                     {% if contact().telP %}
                     <li class="footer-contact__item">
@@ -53,26 +53,26 @@ is_hidden = 0
                     {{ form_token() }}
                     <div class="row">
                         <div class="form-group col--12">
-                            <label for="name">Vaše meno a priezvisko <span class="text-primary">*</span></label>
+                            <label for="name">{{ 'Vaše meno a priezvisko'|_ }}: <span class="text-primary">*</span></label>
                             <input type="text" class="input" id="name" name="meno">
                             <div data-validate-for="meno"></div>
                         </div>
                         <div class="form-group col--12">
-                            <label for="tel">Tel. kontakt</label>
+                            <label for="tel">{{ 'Tel. číslo'|_ }}:</label>
                             <input type="tel" class="input" id="tel" name="telefon">
                         </div>
                         <div class="form-group col--12">
-                            <label for="email">E-mail: <span class="text-primary">*</span></label>
+                            <label for="email">{{ 'E-mail'|_ }}: <span class="text-primary">*</span></label>
                             <input type="email" class="input" id="email" name="email">
                             <div data-validate-for="email"></div>
                         </div>
                         <div class="form-group col--12">
-                            <label for="subject">Predmet správy <span class="text-primary">*</span></label>
+                            <label for="subject">{{ 'Predmet správy'|_ }}: <span class="text-primary">*</span></label>
                             <input type="tel" class="input" id="subject" name="predmet">
                             <div data-validate-for="predmet"></div>
                         </div>
                         <div class="form-group form-group-large col--12">
-                            <label for="text">Text <span class="text-primary">*</span></label>
+                            <label for="text">{{ 'Text'|_ }}: <span class="text-primary">*</span></label>
                             <textarea type="tel" class="textarea" id="text" rows="6" name="sprava"></textarea>
                             <span data-validate-for="sprava"></span>
                         </div>
@@ -81,13 +81,13 @@ is_hidden = 0
                                 <label>
                                     <input name="" type="checkbox" value="1">
                                     <span class="checkbox__indicator"><i class="icon icon-checked"></i></span>
-                                    Súhlasím s <a href="{{'ochrana-udajov'|page}}">spracovaním osobných údajov</a>
+                                    {{ 'Súhlas so'|_ }} <a href="{{'ochrana-udajov'|page}}">{{ 'spracopvaním osobných údajov'|_ }}</a>
                                 </label>
                             </div>
                             <div data-validate-for="suhlas-so-spracovanim-udajov" class="agree-validate text-primary"></div>
                         </div>
                         <div class="col--12 col--m-6 btn-submit">
-                            <button type="submit" class="btn btn--primary">Odoslať</button>
+                            <button type="submit" class="btn btn--primary">{{ 'Odoslať'|_ }}</button>
                         </div>
                         <div id="{{ emptyForm }}_forms_flash" class="form-flash"></div>
                     </div>
