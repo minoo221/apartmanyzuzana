@@ -7,8 +7,15 @@ forceUrl = 0
 [contenteditor]
 file = "apartments.SK.htm"
 ==
+<?php
+function onStart(){
+    $this["isEditor"] = BackendAuth::getUser();
+}
+?>
+==
 <header class="header">
     <div class="header__top">
+        {% if isEditor%}
         <ul class="language">
             {% for code, name in locales %}
             <li class="language__item">
@@ -16,6 +23,7 @@ file = "apartments.SK.htm"
             </li>
             {% endfor %}
         </ul>
+        {% endif %}
         <a href="{{'home'|page}}" class="logo">
             <img src="{{ 'assets/images/logo.png'|theme }}" alt="{{ 'Logo Apartmnány Zuzana'|_ }}">
         </a>
